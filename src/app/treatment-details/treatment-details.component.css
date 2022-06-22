@@ -1,0 +1,12 @@
+.align {
+  display: flex;
+  align-items: center;
+}
+.btn {
+  width: 192px;
+}
+.tabs {
+  background-color: #35b6b4;
+  color: #fff;
+  margin-right: 40px;
+}
