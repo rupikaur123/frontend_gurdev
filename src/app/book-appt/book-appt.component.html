@@ -1,25 +1,108 @@
-<!-- <h2 align="center">Book Appointment</h2>
+<h2 align="center">Book Appointment</h2>
+<form
+  [formGroup]="bookApptForm"
+  autocomplete="off"
+  novalidate
+  (ngSubmit)="onSubmit(bookApptForm.value)"
+  fxLayout="column wrap"
+  fxLayoutAlign="center center"
+  fxLayoutGap="10px"
+>
+  <mat-card-content>
+    <mat-form-field appearance="outline" class="form-field">
+      <input
+        matInput
+        type="text"
+        placeholder="Full Name"
+        formControlName="name"
+        id="name"
+      />
+      <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+      <mat-error *ngIf="hasError('name', 'required')"
+        >Name is required</mat-error
+      >
+      <mat-error *ngIf="hasError('name', 'maxlength')"
+        >You have more than 60 characters</mat-error
+      >
+    </mat-form-field>
+    <br />
+    <br />
+    <mat-form-field appearance="outline" class="form-field">
+      <input
+        matInput
+        [matDatepicker]="picker"
+        placeholder="Choose a date"
+        formControlName="date"
+        id="dateOfBirth"
+        readonly
+        (click)="picker.open()"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <br />
+    <br />
+    <mat-form-field appearance="outline" class="form-field">
+      <input
+        matInput
+        type="text"
+        placeholder="Address"
+        formControlName="address"
+      />
+      <mat-hint align="end">Not more then 100 characters long.</mat-hint>
+      <mat-error *ngIf="hasError('address', 'maxlength')"
+        >You have more than 100 characters</mat-error
+      >
+    </mat-form-field>
+    <br /><br />
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Email Address</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="email"
+        class="form-input-field"
+        pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+      />
+      <mat-error *ngIf="hasError('email', 'email')"
+        >Please enter a valid email address</mat-error
+      >
+    </mat-form-field> </mat-card-content
+  ><br />
+  <br />
+  <mat-form-field appearance="outline" class="form-field">
+    <input
+      matInput
+      placeholder="Phone number"
+      formControlName="phoneNumber"
+      required
+      maxlength="10"
+    />
+    <mat-hint align="end">Must be digits only.</mat-hint>
+    <mat-error *ngIf="hasError('phoneNumber', 'required')"
+      >Phone number is <strong>required</strong></mat-error
+    >
+    <mat-error *ngIf="hasError('phoneNumber', 'pattern')">
+      Please enter valid mumber
+    </mat-error> </mat-form-field
+  ><br /><br />
+  <select
+    class="custom-select mb-3"
+    (change)="changeTreatment($event)"
+    formControlName="services"
+  >
+    <option value="">Services</option>
+    <option *ngFor="let item of treatment" [value]="item.id">
+      {{ item.value }}
+    </option>
+  </select>
+  <!-- error block -->
+  <div style="color: red" *ngIf="isSubmitted && services?.invalid">
+    <sup>*</sup>Please choose the Services
+  </div>
 
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-    <div fxLayout="column" fxLayoutAlign="center center">
-      <div fxFlex="100%">
-        <mat-form-field appearance="outline" class="form-field">
-          <mat-label>Full Name</mat-label>
-          <input matInput formControlName="name" name="name">
-          <mat-error *ngIf="myForm.get('name').hasError('required')">This field is required</mat-error>
-        <mat-error *ngIf="myForm.get('name').hasError('pattern')">Must be your full name</mat-error>
-
-        </mat-form-field>
-      </div>
-      <div fxFlex="100%">
-        <mat-form-field appearance="outline" class="form-field">
-          <mat-label>Email</mat-label>
-          <input matInput formControlName="email" name="email">
-          <mat-error *ngIf="myForm.get('name').hasError('email')">Please enter the valid email address</mat-error>
-        </mat-form-field>
-      </div>
-      <div fxFlex="100%">
-          <button mat-stroked-button color="primary" type="submit" [disabled]="!myForm.valid">Submit</button>
-      </div>
-    </div>
-  </form> -->
+  <br /><br />
+  <mat-card-actions>
+    <button mat-raised-button color="primary">Create</button>
+  </mat-card-actions>
+</form>

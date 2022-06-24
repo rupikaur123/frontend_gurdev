@@ -25,22 +25,3 @@ ngb-carousel .text-wrapper > h3 {
   bottom: 0;
   right: 0;
 }
-.doc-img {
-  width: 106px;
-  margin-right: 40px;
-}
-
-.align {
-  display: flex;
-  align-items: center;
-}
-
-.btn {
-  width: 133px;
-}
-.tabs {
-  background-color: #35b6b4;
-  color: #fff;
-  margin-right: 40px;
-}
-

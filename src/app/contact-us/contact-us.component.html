@@ -1,1 +1,47 @@
-<p>contact-us works!</p>
+<img src=" ../../assets/img/img1.jpg" />
+
+<form
+  [formGroup]="bookApptForm"
+  autocomplete="off"
+  novalidate
+  (ngSubmit)="onSubmit(bookApptForm.value)"
+  fxLayout="column wrap"
+  fxLayoutAlign="center center"
+  fxLayoutGap="10px"
+>
+  <mat-card-content>
+    <mat-form-field appearance="outline" class="form-field">
+      <input
+        matInput
+        [matDatepicker]="picker"
+        placeholder="Choose a date"
+        formControlName="date"
+        id="dateOfBirth"
+        readonly
+        (click)="picker.open()"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <br />
+    <br />
+    <select
+      class="custom-select mb-3"
+      (change)="changeTreatment($event)"
+      formControlName="services"
+    >
+      <option value="">Services</option>
+      <option *ngFor="let item of treatment" [value]="item.id">
+        {{ item.value }}
+      </option>
+    </select>
+    <!-- error block -->
+    <div style="color: red" *ngIf="isSubmitted && services?.invalid">
+      <sup>*</sup>Please choose the service
+    </div>
+  </mat-card-content>
+  <br /><br />
+  <mat-card-actions>
+    <button mat-raised-button color="primary">Make an Appointment</button>
+  </mat-card-actions>
+</form>

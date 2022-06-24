@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
-
-
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-book-appt',
@@ -12,22 +9,53 @@ import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn,
 })
 export class BookApptComponent implements OnInit {
   service_id: any;
-  public myForm!: FormGroup;
+  isSubmitted = false;
+  public bookApptForm!: FormGroup;
   constructor(private route: ActivatedRoute, private router: Router) {
     this.service_id = this.route.snapshot.params['id'];
     console.log('Book_Appointment', this.service_id);
   }
+  treatment = [
+    { value: 'Cardiology', id: '1' },
+    { value: 'Oncology', id: '2' },
+    { value: 'Neuro Science', id: '3' },
+    { value: 'Urology', id: '4' },
+  ];
 
   ngOnInit() {
-    this.myForm = new FormGroup({
-      name: new FormControl('', [Validators.pattern(/\s/), Validators.required]),
+    let MOBILE_PATTERN = /[0-9\+\-\ ]/;
+    this.bookApptForm = new FormGroup({
+      name: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(60),
+      ]),
+      date: new FormControl(new Date()),
       email: new FormControl('', [Validators.email]),
-      phone:new FormControl('', [Validators.required, Validators.maxLength(10),Validators.minLength(10)]),
-      myAddress: new FormControl('', [Validators.maxLength(50)]),
-      });
+      address: new FormControl('', [Validators.maxLength(100)]),
+      services: new FormControl('', [Validators.required]),
+      phoneNumber: new FormControl('', [
+        Validators.required,
+        Validators.pattern(MOBILE_PATTERN),
+      ]),
+    });
   }
-  onSubmit(): void {
-    if (this.myForm.invalid) {
+
+  changeTreatment(e: any) {
+    this.services?.setValue(e.target.value, {
+      onlySelf: true,
+    });
+  }
+
+  get services() {
+    return this.bookApptForm.get('services');
+  }
+  hasError(controlName: string, errorName: string) {
+    return this.bookApptForm.controls[controlName].hasError(errorName);
+  }
+  onSubmit(bookApptValue: any) {
+    console.log('Submit', this.bookApptForm.value);
+    this.isSubmitted = true;
+    if (this.bookApptForm.invalid) {
       return;
     }
   }

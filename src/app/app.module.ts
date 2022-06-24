@@ -11,17 +11,17 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { BookApptComponent } from './book-appt/book-appt.component';
 import { TreatmentComponent } from './treatment/treatment.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgImageSliderModule } from 'ng-image-slider';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { TreatmentDetailsComponent } from './treatment-details/treatment-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FormsModule } from "@angular/forms";
-
-import {MatFormFieldModule} from '@angular/material/form-field';
-
-
-
+import { FormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule} from '@angular/material/select'
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     BookApptComponent,
     TreatmentComponent,
     ContactUsComponent,
-    TreatmentDetailsComponent
+    TreatmentDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,10 +45,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatCardModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    FormsModule
-
+    MatInputModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
