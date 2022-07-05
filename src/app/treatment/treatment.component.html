@@ -1,6 +1,6 @@
 <div>
   <li *ngFor="let item of treatment_name">
-    <div (click)="navigate()" class="trtment">{{ item.name }}</div>
+    <div (click)="navigate(item)" class="trtment">{{ item.name }}</div>
   </li>
 </div>
 
