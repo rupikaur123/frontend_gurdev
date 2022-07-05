@@ -95,6 +95,25 @@ export class HomeComponent implements OnInit {
       title: 'Cardiology',
     },
   ];
+
+  ourFacilities = [
+    {
+      count:'80',
+      text:'Critical care beds',
+    },
+    {
+      count:'60',
+      text:'Single patient beds',
+    },
+    {
+      count:'300',
+      text:'beds',
+    },
+    {
+      count:'20',
+      text:'departments',
+    }
+  ]
   constructor(config: NgbCarouselConfig, private route: Router) {
     console.log('images', this.images);
     // customize default values of carousels used by this component tree

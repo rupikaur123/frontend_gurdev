@@ -87,9 +87,9 @@ export class TreatmentComponent implements OnInit {
       error: (err: any) => {
         console.log('failed with the errors', err.error);
         if (err.error) {
-          this.toster.error(err.error.message);
+          // this.toster.error(err.error.message);
         } else {
-          this.toster.error('Something went wrong');
+          // this.toster.error('Something went wrong');
         }
       },
       complete: () => {},

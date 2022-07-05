@@ -1,14 +1,28 @@
-<mat-toolbar class="bg-blue">
-  <span class="gap" routerLink="/">Home</span>
-  <span class="gap" routerLink="/about">About Us</span>
-  <span class="gap" routerLink="/book/appt">Book an appointment</span>
-  <span class="gap" routerLink="/treatment">Treatments</span>
-  <span class="gap" routerLink="/contact">Contact Us</span>
-</mat-toolbar>
+<div class="header-inner">
+  <mat-toolbar class="bg-blue">
+    <div class="custom-container">
+    <a routerLink="/">Home</a>
+    <a routerLink="/about">About Us</a>
+    <a routerLink="/book/appt">Book an appointment</a>
+    <a routerLink="/treatment">Treatments</a>
+    <a routerLink="/contact">Contact Us</a>
+    </div>
+  </mat-toolbar>
+  
+  <div class="custom-container">
+    <div class="logo-btn-bar">
+      <a href="#" class="logo-wrap">
+        <img src=" ../../assets/img/logo_gurdev_hospital-1.jpg" class="doc-img" />
+      </a>
+      <div class="right-content">
+        <button class="custom-btn">Enquiry 7069001001</button>
+        <button class="custom-btn">Emergency Number</button>
+        <button class="custom-btn" routerLink="/book/appt">Book an appointment</button>
+      </div>
 
-<div class="align">
-  <img src=" ../../assets/img/hosptIcon.png" class="doc-img" />
-  <button class="tabs btn">Enquiry 7069001001</button>
-  <button class="tabs btn">Emergency Number</button>
-  <button class="tabs btn" routerLink="/book/appt">Book an appointment</button>
+    </div>
+  </div>
+
 </div>
+
+

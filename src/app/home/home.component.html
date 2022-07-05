@@ -1,5 +1,5 @@
 
-<div>
+<div class="main-slider">
   <ngb-carousel *ngIf="images">
     <ng-template ngbSlide>
       <div class="wrapper">
@@ -19,43 +19,47 @@
   </ngb-carousel>
 </div>
 
-<div>
-  <h2>Our Specialities</h2>
-  <h3 align="right" (click)="navigate()">View All</h3>
-  <div>
-    <ng-image-slider
-      #nav
-      [images]="imageObject"
-      [infinite]="false"
-      [autoSlide]="1"
-      [imageSize]="{ width: '25%', height: 200 }"
-      slideImage="1"
-    ></ng-image-slider>
+<div class="our-speciality common-padding">
+  <div class="custom-container">
+    <h2><span>Our Specialities </span></h2>
+    <h3 align="right" (click)="navigate()">View All</h3>
+    <div>
+      <ng-image-slider
+        #nav
+        [images]="imageObject"
+        [infinite]="false"
+        [autoSlide]="1"
+        [imageSize]="{ width: '16%', height: 150 }"
+        slideImage="2"
+      ></ng-image-slider>
+    </div>
+
   </div>
 </div>
-<div>
-  <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>Blogs/Tips of the day</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>
-        <img src="../../assets/img/review1.jpg" />
-        <span>Everything you should know about Swine flu or H1N1 </span>
-      </p>
-      <p>
-        <img src="../../assets/img/review2.jpg" />
-        <span
-          >It seems but last year that Dr Vikram Shah received the Rajiv Gandhi
-          National Quality Award for Health Care Excellence. I came across this
-          news...
-        </span>
-      </p>
-    </mat-card-content>
-  </mat-card>
+
+<div class="blog-section common-padding">
+  <div class="custom-container">
+    <mat-card class="example-card">
+       <h2><span>Blogs/Tips of the day </span></h2>
+      <mat-card-content>
+        <p>
+          <img src="../../assets/img/review1.jpg" />
+          <span>Everything you should know about Swine flu or H1N1 </span>
+        </p>
+        <p>
+          <img src="../../assets/img/review2.jpg" />
+          <span
+            >It seems but last year that Dr Vikram Shah received the Rajiv Gandhi
+            National Quality Award for Health Care Excellence. I came across this
+            news...
+          </span>
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
 
-<div style="background-color: #33475b">
+<div class="our-facility common-padding" style="background-color: #33475b">
   <h2 align="center">Our Facilities</h2>
   <ngb-carousel>
     <ng-template ngbSlide>
@@ -74,7 +78,7 @@
   </ngb-carousel>
 </div>
 
-<div>
+<div class="hospital-tour common-padding">
   <h2 align="center">Hospital Tour</h2>
   <div>
     <ng-image-slider

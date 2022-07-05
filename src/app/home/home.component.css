@@ -1,27 +1,49 @@
 ngb-carousel .wrapper {
   position: relative;
-  height: 0;
-  padding-top: 55%; /* Keep ratio for 900x500 images */
+  height: 500px;
 }
 
-ngb-carousel .wrapper > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+/* slider style start */
+
+.main-slider img {
+    width: 100%;
 }
 
-ngb-carousel .text-wrapper {
-  position: relative;
-  height: 0;
-  padding-top: 5%;
+/* blog section style start */
+.blog-section {
+  background-color: #eaf3fc;
+  padding-bottom: 20px;
 }
 
-ngb-carousel .text-wrapper > h3 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+.blog-section mat-card {
+  background: transparent;
+  box-shadow: none !important;
+  padding: 0;
 }
+
+.blog-section mat-card-content>p {
+  width: 50%;
+  display: flex;
+  display: -ms-flexbox;
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+.blog-section mat-card-content {
+  display: flex;
+  display: -ms-flexbox;
+  flex-wrap: wrap;
+  margin: 0 -20px;
+}
+
+.blog-section mat-card-content img {
+  height: 150px;
+  width: 150px;
+  margin-right: 20px;
+}
+
+.blog-section mat-card-content span {
+  display: inline-block;
+}
+
+/* blog ends */

@@ -1,4 +1,130 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+* {
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+}
+
+a {
+    text-decoration: none !important;
+    color: #003a70;
+}
+
+body {
+    line-height: 1.3 !important;
+}
+
+.custom-container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 1200px){
+.custom-container {
+    width: 1170px;
+}
+}
+img {
+    max-width: 100%;
+}
+
+/* common style start */
+.custom-btn {
+    background-color: #003a70;
+    color: #fff;
+    border: 1px solid #003a70;
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: .2s ease;
+}
+
+.custom-btn:hover {
+    background-color: #35b6b4;
+    border-color: #35b6b4;
+}
+
+.common-padding {
+    padding: 40px 0;
+}
+
+.common-padding h2 {
+    color: #003a70;
+    font-size: 28px;
+    font-weight: 500;
+    position: relative;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.common-padding h2::after {
+    position: absolute;
+    content: "";
+    background: #cfcfcf;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    bottom: 0;
+}
+.common-padding h2 span {
+    display: inline-block;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #003a70;
+    margin-bottom: 0;
+}
+
+/* our specilist style start */
+.our-speciality .img-div {
+    box-shadow: none !important;
+}
+
+.our-speciality .img-div img.image {
+    position: unset !important;
+    max-width: 80%;
+}
+
+.our-speciality .img-div .custom-image-main {
+    margin: 0 20px;
+    text-align: center;
+}
+
+.our-speciality .caption {
+    position: unset !important;
+    box-shadow: none !important;
+    background-image: unset !important;
+    color: #003a70 !important;
+    font-weight: 500;
+    padding: 0 !important;
+    padding-top: 20px !important;
+}
+
+.our-speciality h3 {
+    display: inline-block;
+    float: right;
+    border: 1px solid #35b6b4;
+    border-radius: 5px;
+    padding: 5px 10px;
+    line-height: 1.3;
+    font-size: 14px;
+    font-weight: 500;
+    color: #35b6b4;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.our-speciality h3:hover {
+    background: #35b6b4;
+    color: #fff;
+}
+
+.ng-image-slider .ng-image-slider-container .main .prev {
+    left: 0px !important;
+}
+
+.ng-image-slider .ng-image-slider-container .main .next {
+    right: 0px !important;
+}
 

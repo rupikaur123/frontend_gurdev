@@ -1,28 +1,46 @@
-.gap {
-  margin-right: 70px;
-  cursor: pointer;
-}
-
 .bg-blue {
   background-color: #003a70;
   color: #fff;
 }
 
-.doc-img {
-  width: 106px;
-  margin-right: 40px;
-}
-
-.align {
-  display: flex;
-  align-items: center;
-}
-
-.btn {
-  width: 133px;
-}
-.tabs {
-  background-color: #35b6b4;
+.header-inner a {
+  font-size: 14px;
+  font-weight: 400;
   color: #fff;
-  margin-right: 40px;
+  line-height: 1.3;
+  padding: 14px 10px;
+  display: inline-block;
+  -webkit-transition: background 0.2s ease-in-out;
+  -moz-transition: background 0.2s ease-in-out;
+  -ms-transition: background 0.2s ease-in-out;
+  -o-transition: background 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out;
 }
+.header-inner a:hover {
+  font-weight: 500;
+  color: #fff;
+}
+.header-inner mat-toolbar {
+  height: auto;
+}
+.logo-btn-bar {
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+.logo-btn-bar .custom-btn {
+  margin-right: 10px;
+  max-width: 130px;
+  border-radius: 12px;
+}
+
+.logo-btn-bar .custom-btn:last-child {
+  margin-right: 0;
+}
+.header-inner .logo-wrap {
+  display: inline-block;
+  padding: 0;
+}
+
