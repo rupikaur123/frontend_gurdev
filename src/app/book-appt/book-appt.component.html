@@ -15,6 +15,7 @@
         readonly (click)="picker.open()" />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
+      <mat-hint align="end">Optional.</mat-hint>
     </mat-form-field>
     <br />
     <br />
@@ -22,6 +23,7 @@
       <input matInput type="text" placeholder="Address" formControlName="address" />
       <mat-hint align="end">Not more then 100 characters long.</mat-hint>
       <mat-error *ngIf="hasError('address', 'maxlength')">You have more than 100 characters</mat-error>
+      <mat-hint align="end">Optional.</mat-hint>
     </mat-form-field>
     <br /><br />
     <mat-form-field appearance="outline" class="form-field">
@@ -51,6 +53,11 @@
     <mat-error *ngIf="hasError('services', 'required')">
       Please select service
     </mat-error>
+  </mat-form-field>
+  <br><br>
+  <mat-form-field appearance="outline" class="form-field">
+    <input matInput type="text" placeholder="Comment" formControlName="comments" id="name" />
+    <mat-hint align="end">Optional.</mat-hint>
   </mat-form-field>
 
   <!-- <select

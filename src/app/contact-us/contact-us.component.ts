@@ -16,12 +16,6 @@ export class ContactUsComponent implements OnInit {
   treatment_name:any=[]
   baseUrl: any = 'http://api.gurdevhospital.co/';
   constructor(private route: ActivatedRoute, private router: Router, public http: HttpClient) { }
-  treatment = [
-    { value: 'Cardiology', id: '1' },
-    { value: 'Oncology', id: '2' },
-    { value: 'Neuro Science', id: '3' },
-    { value: 'Urology', id: '4' },
-  ];
   ngOnInit(): void {
     this.getServiceList();
     this.getStaticList();

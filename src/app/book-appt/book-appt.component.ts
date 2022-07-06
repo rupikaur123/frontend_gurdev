@@ -20,13 +20,7 @@ export class BookApptComponent implements OnInit {
     this.service_id = this.route.snapshot.params['id'];
     console.log('Book_Appointment', this.service_id);
   }
-  treatment = [
-    { value: 'Cardiology', id: '1' },
-    { value: 'Oncology', id: '2' },
-    { value: 'Neuro Science', id: '3' },
-    { value: 'Urology', id: '4' },
-  ];
-
+  data:any
   ngOnInit() {
     this.getServiceList()
     this.serviceForm()
@@ -47,6 +41,7 @@ export class BookApptComponent implements OnInit {
         Validators.required,
         Validators.pattern(MOBILE_PATTERN),
       ]),
+      comments: new FormControl(''),
     });
    
   
@@ -68,6 +63,37 @@ export class BookApptComponent implements OnInit {
     this.isSubmitted = true;
     if (this.bookApptForm.invalid) {
       return;
+    } else{
+      let formdata = new FormData()
+      formdata.append('u_full_name', this.bookApptForm.value.name)
+      formdata.append('u_phone_number', this.bookApptForm.value.phoneNumber)
+      formdata.append('service_id', this.bookApptForm.value.services)
+      formdata.append('u_email', this.bookApptForm.value.email)
+      formdata.append('u_address', this.bookApptForm.value.address)
+      formdata.append('u_dob', this.bookApptForm.value.date)
+      formdata.append('comment', this.bookApptForm.value.comments)
+      this.http.post<any>(this.baseUrl + 'api/static_pages', formdata)
+      .subscribe({
+        next: (response: any) => {
+            this.data = response
+              console.log("Data" + this.data);
+              // if (this.data.success == true) {
+              //   this.toster.success(this.data.message);
+              // }
+            
+              this.isSubmitted = false;
+              this.bookApptForm.reset()
+        },
+        error: (err: any) => {
+          console.log('failed with the errors', err.error);
+          if (err.error) {
+            // this.toster.error(err.error.message);
+          } else {
+            // this.toster.error('Something went wrong');
+          }
+        },
+        complete: () => {},
+      });
     }
   }
   getServiceList() {
