@@ -48,7 +48,7 @@ img {
 }
 
 .common-padding {
-    padding: 40px 0;
+    padding: 60px 0;
 }
 
 .common-padding h2 {
@@ -83,12 +83,17 @@ img {
 
 .our-speciality .img-div img.image {
     position: unset !important;
-    max-width: 80%;
+    max-width: 100%;
 }
 
 .our-speciality .img-div .custom-image-main {
-    margin: 0 20px;
+    margin: 0 auto;
     text-align: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    overflow: hidden;
 }
 
 .our-speciality .caption {

@@ -1,10 +1,119 @@
-.gap {
-    margin-right: 70px;
-    cursor: pointer;
-}
 
-.bg-blue {
-    background-color: #003a70;
+footer {
+    padding: 40px 0;
+    background: #003a70;
     color: #fff;
 }
 
+footer h4 {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 2px;
+    margin-bottom: 23px !important;
+}
+
+footer h4::after {
+    content: "";
+    position: absolute;
+    background: #fff;
+    left: 0;
+    width: 50%;
+    height: 2px;
+    bottom: 0;
+}
+
+footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 5px;
+}
+
+footer ul li a {
+    color: white;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+footer p {
+    color: white;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+footer p i {
+    width: 20px;
+    text-align: center;
+    padding-right: 5px;
+}
+
+ul.social-wrap {
+    display: flex;
+    display: -ms-flexbox;
+    align-items: center;
+}
+
+ul.social-wrap li {
+    margin: 0;
+    margin-right: 10px;
+}
+
+ul.social-wrap li a {
+    width: 25px;
+    height: 25px;
+    line-height: 26px;
+    background: white;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    transition: .2s ease;
+}
+
+ul.social-wrap li a i {
+    color: #003a70;
+}
+
+ul.social-wrap li:hover a {
+    background: #35b6b4;
+}
+
+ul.social-wrap li:hover a i {
+    color: white;
+}
+
+footer ul li a.gap {
+    margin: 0;
+}
+
+footer ul li a:hover {
+    color: #35b6b4;
+    font-weight: 500;
+}
+footer p a {
+    color: white;
+}
+
+footer p a:hover {
+    color: #35b6b4;
+    font-weight: 500;
+}
+.footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    background: #35b6b4;
+}
+
+.footer-bottom p,.footer-bottom p a {
+    margin: 0;
+    color: white;
+    transition: .2s ease;
+}
+
+.footer-bottom p a:hover {
+    color: #003a70;
+}

@@ -28,6 +28,7 @@ import { NewsDetailComponent } from './news-detail/news-detail.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { TermsComponent } from './terms/terms.component';
+import {  NgxSlickJsModule} from 'ngx-slickjs';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,15 @@ import { TermsComponent } from './terms/terms.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+     NgxSlickJsModule.forRoot({
+      links: {
+        jquery: "https://code.jquery.com/jquery-3.4.0.min.js",
+        slickJs: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js",
+        slickCss: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css",
+        slickThemeCss: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+      }
+  })
   ],
   providers: [],
   bootstrap: [AppComponent],

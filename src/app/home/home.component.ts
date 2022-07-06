@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Slick } from 'ngx-slickjs';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +13,13 @@ import { HttpClient } from '@angular/common/http';
 export class HomeComponent implements OnInit {
   images = [
     '../../assets/img/img1.jpg',
-    '../../assets/img/img2.jpg',
-    '../../assets/img/img1.jpg',
+    '../../assets/img/b10.jpg',
+    '../../assets/img/b11.png',
+    '../../assets/img/b12.jpg',
+    '../../assets/img/b13.jpg',
+    // '../../assets/img/b9.png',
+    '../../assets/img/b2.jpeg',
+    '../../assets/img/b1.jpg',
   ];
   hospitalObject = [
     {
@@ -51,8 +57,8 @@ export class HomeComponent implements OnInit {
   ];
   imageObject = [
     {
-      image: '../../assets/img/treatment1.png',
-      thumbImage: '../../assets/img/treatment1.png',
+      image: '../../assets/img/hospital3.jpg',
+      thumbImage: '../../assets/img/hospital3.jpg',
       title: 'Cardiology',
     },
     {
@@ -172,4 +178,24 @@ export class HomeComponent implements OnInit {
   navigate() {
     this.route.navigate(['/treatment']);
   }
+
+  // slick config
+
+  config: Slick.Config = {
+    infinite: false,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    dots: false,
+    autoplay: false,
+    autoplaySpeed: 2000 
+  }
+  configHospitalTour: Slick.Config = {
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    dots: false,
+    autoplay: true,
+    autoplaySpeed: 2000 
+  }
+
 }

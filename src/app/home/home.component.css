@@ -1,6 +1,6 @@
 ngb-carousel .wrapper {
   position: relative;
-  height: 500px;
+  height: 520px;
 }
 
 /* slider style start */
@@ -8,7 +8,16 @@ ngb-carousel .wrapper {
 .main-slider img {
     width: 100%;
 }
-
+ngb-carousel .wrapper::after {
+  content: "";
+  position: absolute;
+  background: rgb(0 0 0 / 30%);
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
 /* blog section style start */
 .blog-section {
   background-color: #eaf3fc;
@@ -47,3 +56,51 @@ ngb-carousel .wrapper {
 }
 
 /* blog ends */
+
+/* our-facility start */
+.our-facility {
+  background: #003a70;
+  color: white;
+}
+
+.our-facility h2 {
+  color: white;
+  margin-bottom: 40px;
+}
+
+.our-facility h2 span {
+  border-color: white;
+}
+
+.our-facility .text-inner {
+  text-align: center;
+}
+
+.our-facility .text-inner h1 {
+  font-size: 45px;
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.our-facility .text-inner p {
+  font-size: 14px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+/* our faciity ends */
+
+.hospital-tour .slick-slider {
+  margin-top: 30px;
+}
+
+.hospital-tour .img-wrap img {
+  width: 100%;
+}
+
+.hospital-tour .img-wrap {
+  margin: 0 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  max-height: 175px;
+}
