@@ -1,31 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-
 @Component({
-  selector: 'app-treatment',
-  templateUrl: './treatment.component.html',
-  styleUrls: ['./treatment.component.css'],
+  selector: 'app-gallery',
+  templateUrl: './gallery.component.html',
+  styleUrls: ['./gallery.component.css']
 })
-export class TreatmentComponent implements OnInit {
-  treatment_name:any=[]
+export class GalleryComponent implements OnInit {
+  galleryList:any=[]
   res: any;
   baseUrl: any = 'http://api.gurdevhospital.co/';
   constructor(private route: Router, public http: HttpClient) {}
 
   ngOnInit(): void {
-    this.getServiceList();
+    this.getGalleryList();
   }
-  navigate(data: any) {
-    this.route.navigate(['/treatment/details/' + data.id]);
-  }
-  getServiceList() {
-    this.http.get<any>(this.baseUrl + 'api/get_services').subscribe({
+  getGalleryList() {
+    this.http.get<any>(this.baseUrl + 'api/gallery_list').subscribe({
       next: (data: any) => {
         console.log('Get completed sucessfully. The response received ' + data);
         this.res = data.data;
-        this.treatment_name = this.res;
-        console.log('treatment_name', this.treatment_name);
+        this.galleryList = this.res;
+        console.log('galleryList', this.galleryList);
       },
       error: (err: any) => {
         console.log('failed with the errors', err.error);
@@ -38,4 +34,5 @@ export class TreatmentComponent implements OnInit {
       complete: () => {},
     });
   }
+
 }

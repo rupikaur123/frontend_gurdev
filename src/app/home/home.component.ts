@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -96,6 +97,8 @@ export class HomeComponent implements OnInit {
     },
   ];
 
+  reviews_details: any
+  baseUrl: any = 'http://api.gurdevhospital.co/';
   ourFacilities = [
     {
       count:'80',
@@ -114,7 +117,8 @@ export class HomeComponent implements OnInit {
       text:'departments',
     }
   ]
-  constructor(config: NgbCarouselConfig, private route: Router) {
+  res:any
+  constructor(config: NgbCarouselConfig, private route: Router,public http: HttpClient) {
     console.log('images', this.images);
     // customize default values of carousels used by this component tree
     config.interval = 2000;
@@ -122,7 +126,28 @@ export class HomeComponent implements OnInit {
     config.pauseOnHover = true;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getReviewList()
+  }
+  getReviewList(){
+    this.http.get<any>(this.baseUrl + 'api/reviews_front').subscribe({
+      next: (data: any) => {
+        console.log('Get completed sucessfully. The response received ' + data);
+        this.res = data.data;
+        this.reviews_details = this.res;
+        console.log('reviews_details', this.reviews_details);
+      },
+      error: (err: any) => {
+        console.log('failed with the errors', err.error);
+        if (err.error) {
+          // this.toster.error(err.error.message);
+        } else {
+          // this.toster.error('Something went wrong');
+        }
+      },
+      complete: () => { },
+    });
+  }
   navigate() {
     this.route.navigate(['/treatment']);
   }

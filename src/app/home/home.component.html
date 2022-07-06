@@ -42,18 +42,11 @@
     <mat-card class="example-card">
        <h2><span>Blogs/Tips of the day </span></h2>
       <mat-card-content>
-        <p>
-          <img src="../../assets/img/review1.jpg" />
-          <span>Everything you should know about Swine flu or H1N1 </span>
+        <p *ngFor="let item of reviews_details">
+          <img [src]="baseUrl+item.image" />
+          <span>  {{item.review}} </span>
         </p>
-        <p>
-          <img src="../../assets/img/review2.jpg" />
-          <span
-            >It seems but last year that Dr Vikram Shah received the Rajiv Gandhi
-            National Quality Award for Health Care Excellence. I came across this
-            news...
-          </span>
-        </p>
+      
       </mat-card-content>
     </mat-card>
   </div>

@@ -20,9 +20,14 @@ import { FormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule} from '@angular/material/select'
 import { HttpClientModule } from '@angular/common/http';
+import { LatestNewsComponent } from './latest-news/latest-news.component';
+import { NewsDetailComponent } from './news-detail/news-detail.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { TermsComponent } from './terms/terms.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +40,11 @@ import { HttpClientModule } from '@angular/common/http';
     TreatmentComponent,
     ContactUsComponent,
     TreatmentDetailsComponent,
+    LatestNewsComponent,
+    NewsDetailComponent,
+    GalleryComponent,
+    PrivacyPolicyComponent,
+    TermsComponent,
   ],
   imports: [
     BrowserModule,

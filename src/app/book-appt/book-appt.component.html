@@ -1,105 +1,73 @@
 <h2 align="center">Book Appointment</h2>
-<form
-  [formGroup]="bookApptForm"
-  autocomplete="off"
-  novalidate
-  (ngSubmit)="onSubmit(bookApptForm.value)"
-  fxLayout="column wrap"
-  fxLayoutAlign="center center"
-  fxLayoutGap="10px"
->
+<form [formGroup]="bookApptForm" autocomplete="off" novalidate (ngSubmit)="onSubmit(bookApptForm.value)"
+  fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
   <mat-card-content>
     <mat-form-field appearance="outline" class="form-field">
-      <input
-        matInput
-        type="text"
-        placeholder="Full Name"
-        formControlName="name"
-        id="name"
-      />
+      <input matInput type="text" placeholder="Full Name" formControlName="name" id="name" />
       <mat-hint align="end">Not more then 60 characters long.</mat-hint>
-      <mat-error *ngIf="hasError('name', 'required')"
-        >Name is required</mat-error
-      >
-      <mat-error *ngIf="hasError('name', 'maxlength')"
-        >You have more than 60 characters</mat-error
-      >
+      <mat-error *ngIf="hasError('name', 'required')">Name is required</mat-error>
+      <mat-error *ngIf="hasError('name', 'maxlength')">You have more than 60 characters</mat-error>
     </mat-form-field>
     <br />
     <br />
     <mat-form-field appearance="outline" class="form-field">
-      <input
-        matInput
-        [matDatepicker]="picker"
-        placeholder="Choose a date"
-        formControlName="date"
-        id="dateOfBirth"
-        readonly
-        (click)="picker.open()"
-      />
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date" id="dateOfBirth"
+        readonly (click)="picker.open()" />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <br />
     <br />
     <mat-form-field appearance="outline" class="form-field">
-      <input
-        matInput
-        type="text"
-        placeholder="Address"
-        formControlName="address"
-      />
+      <input matInput type="text" placeholder="Address" formControlName="address" />
       <mat-hint align="end">Not more then 100 characters long.</mat-hint>
-      <mat-error *ngIf="hasError('address', 'maxlength')"
-        >You have more than 100 characters</mat-error
-      >
+      <mat-error *ngIf="hasError('address', 'maxlength')">You have more than 100 characters</mat-error>
     </mat-form-field>
     <br /><br />
     <mat-form-field appearance="outline" class="form-field">
       <mat-label>Email Address</mat-label>
-      <input
-        type="text"
-        matInput
-        formControlName="email"
-        class="form-input-field"
-        pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
-      />
-      <mat-error *ngIf="hasError('email', 'email')"
-        >Please enter a valid email address</mat-error
-      >
-    </mat-form-field> </mat-card-content
-  ><br />
+      <input type="text" matInput formControlName="email" class="form-input-field"
+        pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" />
+      <mat-error *ngIf="hasError('email', 'email')">Please enter a valid email address</mat-error>
+    </mat-form-field>
+  </mat-card-content><br />
   <br />
   <mat-form-field appearance="outline" class="form-field">
-    <input
-      matInput
-      placeholder="Phone number"
-      formControlName="phoneNumber"
-      required
-      maxlength="10"
-    />
+    <input matInput placeholder="Phone number" formControlName="phoneNumber" required maxlength="10" />
     <mat-hint align="end">Must be digits only.</mat-hint>
-    <mat-error *ngIf="hasError('phoneNumber', 'required')"
-      >Phone number is <strong>required</strong></mat-error
-    >
+    <mat-error *ngIf="hasError('phoneNumber', 'required')">Phone number is <strong>required</strong></mat-error>
     <mat-error *ngIf="hasError('phoneNumber', 'pattern')">
       Please enter valid mumber
-    </mat-error> </mat-form-field
-  ><br /><br />
-  <select
+    </mat-error>
+  </mat-form-field><br /><br />
+
+  <mat-form-field *ngIf="treatment_name.length>0">
+    <mat-label>Services</mat-label>
+    <mat-select formControlName="services">
+      <mat-option *ngFor="let x of treatment_name" [value]="x.id">
+        {{x.name}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="hasError('services', 'required')">
+      Please select service
+    </mat-error>
+  </mat-form-field>
+
+  <!-- <select
     class="custom-select mb-3"
     (change)="changeTreatment($event)"
     formControlName="services"
+    *ngIf="treatment_name.length>0"
   >
     <option value="">Services</option>
-    <option *ngFor="let item of treatment" [value]="item.id">
-      {{ item.value }}
+    <option *ngFor="let item of treatment_name" [value]="item.id">
+      {{ item.name }}
     </option>
-  </select>
+  </select> -->
   <!-- error block -->
-  <div style="color: red" *ngIf="isSubmitted && services?.invalid">
+  <!-- <div style="color: red" *ngIf="isSubmitted && services?.invalid">
     <sup>*</sup>Please choose the Services
-  </div>
+  </div> -->
 
   <br /><br />
   <mat-card-actions>
