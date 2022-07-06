@@ -23,7 +23,16 @@
   <div class="custom-container">
     <h2><span>Our Specialities </span></h2>
     <h3 align="right" (click)="navigate()">View All</h3>
-    <div>
+    <ngb-carousel>
+      <ng-template ngbSlide *ngFor="let item of treatment_name">
+        <div class="wrapper">
+          <img [src]="baseUrl+item.image" />
+        </div>
+      </ng-template>
+   
+    </ngb-carousel>
+
+    <!-- <div>
       <ng-image-slider
         #nav
         [images]="imageObject"
@@ -32,7 +41,7 @@
         [imageSize]="{ width: '16%', height: 150 }"
         slideImage="2"
       ></ng-image-slider>
-    </div>
+    </div> -->
 
   </div>
 </div>
