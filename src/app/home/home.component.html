@@ -38,10 +38,41 @@
   </ngb-carousel>
 </div>
 
+
+<!-- about section starts -->
+<div class="img-content common-padding">
+  <div class="custom-container">
+    <div class="row">
+      <div class="col-6">
+        <div class="left-img-wrap">
+          <img src="../../assets/img/h12.webp" alt="Gurdev Hospital" title="Gurdev Hospital" alt="">
+        </div>
+      </div>
+      <div class="col-6">
+        <h2 style="text-align: left;"><span>The Best Multspecialty Hospital in Nurpur Bedi, Ropar</span></h2>
+        <h4 class="small-head">Personalised and affordable care near you</h4>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+          standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+          make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+          typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+          sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+          PageMaker including versions of Lorem Ipsum.
+        </p>
+        <button class="custom-btn" title="Read More"><i class="fa fa-arrow-right" aria-hidden="true"></i>Read
+          More</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- end about section -->
+
+
+
 <div class="our-speciality common-padding">
   <div class="custom-container">
     <h2><span>Our Specialities </span></h2>
-    <h3 align="right" (click)="navigate()">View All</h3>
     <!-- <div>
       <ng-image-slider
         #nav
@@ -53,54 +84,94 @@
       ></ng-image-slider>
     </div> -->
 
-    <div
-      slickContainer
-      #slickController="slick"
-      [slickConfig]="configHospitalTour"
-    >
+    <div slickContainer #slickController="slick" [slickConfig]="configSpecialities">
       <ng-container *ngIf="slickController.initialize">
         <div class="img-wrap" slickItem *ngFor="let item of treatment_name">
           <img [src]="baseUrl + item.image" />
-        <strong>{{item.name}}</strong>  
+          <h4>{{item.name}}</h4>
         </div>
+      </ng-container>
+    </div>
+    <h3 align="right" (click)="navigate()">View All</h3>
+  </div>
+</div>
+
+<div class="our-team common-padding">
+  <div class="custom-container">
+    <h2><span> Our Team of Experts </span></h2>
+    <div slickContainer #slickController="slick" [slickConfig]="configTeam">
+      <ng-container *ngIf="slickController.initialize">
+        <!-- <div class="img-wrap" slickItem *ngFor="let item of doctorList">
+          <img [src]="baseUrl+item.image" />
+          <h4> <strong>{{item.first_name+' '+ item.last_name}}</strong></h4>
+          <strong>{{item.qualification}}</strong><br>
+          <strong>{{item.profession}}</strong>
+        </div> -->
+
+        <div class="inner-wrap" slickItem>
+          <div class="img-wrap">
+            <img src="../../assets/img/team.png" />
+          </div>
+          <div class="text-wrap">
+            <h4>Shiwansh Sharma</h4>
+            <p>M.D., IDCCM (Critical care)</p>
+            <p> Obstetrician & Gynecologist</p>
+          </div>
+        </div>
+
+        <div class="inner-wrap" slickItem>
+          <div class="img-wrap">
+            <img src="../../assets/img/team.png" />
+          </div>
+          <div class="text-wrap">
+            <h4>Shiwansh Sharma</h4>
+            <p>M.D., IDCCM (Critical care)</p>
+            <p> Obstetrician & Gynecologist</p>
+          </div>
+        </div>
+
+        <div class="inner-wrap" slickItem>
+          <div class="img-wrap">
+            <img src="../../assets/img/team.png" />
+          </div>
+          <div class="text-wrap">
+            <h4>Shiwansh Sharma</h4>
+            <p>M.D., IDCCM (Critical care)</p>
+            <p> Obstetrician & Gynecologist</p>
+          </div>
+        </div>
+
+        <div class="inner-wrap" slickItem>
+          <div class="img-wrap">
+            <img src="../../assets/img/team.png" />
+          </div>
+          <div class="text-wrap">
+            <h4>Shiwansh Sharma</h4>
+            <p>M.D., IDCCM (Critical care)</p>
+            <p> Obstetrician & Gynecologist</p>
+          </div>
+        </div>
+
+        <div class="inner-wrap" slickItem>
+          <div class="img-wrap">
+            <img src="../../assets/img/team.png" />
+          </div>
+          <div class="text-wrap">
+            <h4>Shiwansh Sharma</h4>
+            <p>M.D., IDCCM (Critical care)</p>
+            <p> Obstetrician & Gynecologist</p>
+          </div>
+        </div>
+
       </ng-container>
     </div>
   </div>
 </div>
 
-<div class="blog-section common-padding">
-  <div class="custom-container">
-    <mat-card class="example-card">
-      <h2><span>Blogs/Tips of the day </span></h2>
-      <mat-card-content>
-        <p *ngFor="let item of reviews_details">
-          <img [src]="baseUrl + item.image" />
-          <span> {{ item.review }} </span>
-        </p>
-      </mat-card-content>
-    </mat-card>
-  </div>
-</div>
 
 <div class="our-facility common-padding">
   <div class="custom-container">
     <h2><span> Facilities </span></h2>
-    <!-- <ngb-carousel>
-      <ng-template ngbSlide>
-        <div class="text-wrapper">
-          <h3>
-            84 Critical car beds 80 Single patient Beds 300 Beds 20 Departments
-          </h3>
-          <p></p>
-        </div>
-      </ng-template>
-      <ng-template ngbSlide>
-        <div class="text-wrapper">
-          <h3>2 Critical car beds 2 Single patient Beds 7 Beds 8 Departments</h3>
-        </div>
-      </ng-template>
-    </ngb-carousel> -->
-
     <div slickContainer #slickController="slick" [slickConfig]="config">
       <ng-container *ngIf="slickController.initialize">
         <div slickItem>
@@ -142,38 +213,76 @@
   </div>
 </div>
 
-<div class="hospital-tour common-padding">
-  <div class="custom-container">
-    <h2><span> Our Team of Experts </span></h2>
-    <div
-      slickContainer
-      #slickController="slick"
-      [slickConfig]="configHospitalTour"
-    >
-      <ng-container *ngIf="slickController.initialize">
-        <div class="img-wrap" slickItem *ngFor="let item of doctorList">
-          <img [src]="baseUrl+item.image" />
-          <h4> <strong>{{item.first_name+' '+ item.last_name}}</strong></h4>
-          <strong>{{item.qualification}}</strong><br>
-          <strong>{{item.profession}}</strong>
-        </div>
-      </ng-container>
-    </div>
-  </div>
-</div>
+
 <div class="hospital-tour common-padding">
   <div class="custom-container">
     <h2><span> Hospital Tour </span></h2>
-    <div
-      slickContainer
-      #slickController="slick"
-      [slickConfig]="configHospitalTour"
-    >
+    <div slickContainer #slickController="slick" [slickConfig]="configHospitalTour">
       <ng-container *ngIf="slickController.initialize">
         <div class="img-wrap" slickItem *ngFor="let item of galleryList">
           <img [src]="baseUrl+item.image_path+item.image" />
         </div>
       </ng-container>
     </div>
+  </div>
+</div>
+
+<div class="news-section common-padding">
+  <div class="custom-container">
+    <h2><span>Latest News </span></h2>
+
+    <div class="latest-news">
+      <div class="inner-wrap">
+        <div class="img-wrap">
+          <img src="../../assets/img/news.png" alt="">
+        </div>
+        <div class="text-wrap">
+          <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+          <p class="post-meta">
+            <a class="post-time" href=""><span class="entry-date">July 5, 2022</span></a> by <a class="" href="">Gujarat Superspeciality Hospital</a>              
+            </p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <a class="detail-link" href="" title="More Detail">More Detail</a>
+        </div>
+      </div>
+
+      <div class="inner-wrap">
+        <div class="img-wrap">
+          <img src="../../assets/img/news.png" alt="">
+        </div>
+        <div class="text-wrap">
+          <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+          <p class="post-meta">
+            <a class="post-time" href=""><span class="entry-date">July 5, 2022</span></a> by <a class="" href="">Gujarat Superspeciality Hospital</a>              
+            </p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <a class="detail-link" href="" title="More Detail">More Detail</a>
+        </div>
+      </div>
+
+      <div class="inner-wrap">
+        <div class="img-wrap">
+          <img src="../../assets/img/news.png" alt="">
+        </div>
+        <div class="text-wrap">
+          <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+          <p class="post-meta">
+            <a class="post-time" href=""><span class="entry-date">July 5, 2022</span></a> by <a class="" href="">Gujarat Superspeciality Hospital</a>              
+            </p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <a class="detail-link" href="" title="More Detail">More Detail</a>
+        </div>
+      </div>
+
+    
+    </div>
+
+    <button class="custom-btn" title="Read More"><i class="fa fa-arrow-right" aria-hidden="true"></i>Read
+      More News</button>
+    <!-- <p *ngFor="let item of reviews_details">
+          <img [src]="baseUrl + item.image" />
+          <span> {{ item.review }} </span>
+        </p> -->
+
   </div>
 </div>

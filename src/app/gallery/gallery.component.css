@@ -1,0 +1,46 @@
+.banner-section {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    width: 100%;
+  }
+  
+  p.content-wrap {
+    line-height: 1.6;
+  }
+
+  .gallery-wrap .img-inner {
+    margin: 0 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 250px;
+    width: 100%;
+}
+
+.gallery-wrap ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.gallery-wrap ul li {
+    width: 25%;
+    padding: 0 10px;
+    margin-bottom: 20px;
+}
+
+.gallery-wrap {
+    margin-top: 40px;
+}
+.gallery-wrap .img-inner img {
+    width: 100%;
+    height: 100%;
+    transition: .2s ease-out;
+}
+
+.gallery-wrap .img-inner:hover img {
+    transform: scale(1.5);
+}

@@ -15,6 +15,20 @@ a {
 
 body {
     line-height: 1.3 !important;
+    color: #7c7070 !important;
+    font-size: 14px;
+}
+
+p {
+    font-size: 16px;
+}
+
+a {
+    color: #35b6b4 !important;
+}
+
+a:hover {
+    color: #003a70 !important;
 }
 
 .custom-container {
@@ -35,16 +49,18 @@ img {
 /* common style start */
 .custom-btn {
     background-color: #003a70;
-    color: #fff;
+    color: #fff !important;
     border: 1px solid #003a70;
-    border-radius: 5px;
-    padding: 5px 10px;
-    transition: .2s ease;
+    border-radius: 8px;
+    padding: 10px 15px;
+    transition: .2s ease-out;
+    min-width: 120px;
 }
 
 .custom-btn:hover {
     background-color: #35b6b4;
     border-color: #35b6b4;
+    color: #fff !important;
 }
 
 .common-padding {
@@ -53,11 +69,13 @@ img {
 
 .common-padding h2 {
     color: #003a70;
-    font-size: 28px;
-    font-weight: 500;
-    position: relative;
+    font-size: 40px;
+    font-weight: 600;
+    /* position: relative; */
     margin: 0;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 1.3;
 }
 
 .common-padding h2::after {
@@ -68,11 +86,12 @@ img {
     height: 1px;
     left: 0;
     bottom: 0;
+   opacity: 0;
 }
 .common-padding h2 span {
     display: inline-block;
-    padding-bottom: 5px;
-    border-bottom: 3px solid #003a70;
+    /* padding-bottom: 5px; */
+    /* border-bottom: 3px solid #003a70; */
     margin-bottom: 0;
 }
 
@@ -106,25 +125,6 @@ img {
     padding-top: 20px !important;
 }
 
-.our-speciality h3 {
-    display: inline-block;
-    float: right;
-    border: 1px solid #35b6b4;
-    border-radius: 5px;
-    padding: 5px 10px;
-    line-height: 1.3;
-    font-size: 14px;
-    font-weight: 500;
-    color: #35b6b4;
-    cursor: pointer;
-    transition: .2s ease;
-}
-
-.our-speciality h3:hover {
-    background: #35b6b4;
-    color: #fff;
-}
-
 .ng-image-slider .ng-image-slider-container .main .prev {
     left: 0px !important;
 }
@@ -133,3 +133,128 @@ img {
     right: 0px !important;
 }
 
+h4.small-head {
+    color: #35b6b4;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.left-img-wrap {
+    padding-right: 20px;
+}
+
+.img-content p {
+    margin-bottom: 20px;
+}
+
+.custom-btn i {
+    margin-right: 5px;
+}
+
+.custom-btn:hover i {
+    margin-right: 10px;
+}
+
+button.slick-arrow.slick-prev, button.slick-arrow.slick-prev:hover, button.slick-arrow.slick-prev:focus {
+    background-image: url(assets/img/left-arrow.svg);
+}
+
+button.slick-arrow.slick-next, button.slick-arrow.slick-next:hover, button.slick-arrow.slick-next:focus {
+    background-image: url(assets/img/right-arrow.svg);
+}
+
+button.slick-arrow, button.slick-arrow:hover, button.slick-arrow:focus {
+    background-color: #003a70;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: center;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    opacity: 0.6;
+}
+
+button.slick-arrow::before {
+    display: none;
+}
+
+button.slick-arrow:hover {
+    opacity: 1 !important;
+}
+
+/* common dialog style start */
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.modal-content button.close {
+    border: 0;
+    background: transparent;
+    font-size: 26px;
+    padding: 0;
+    height: 20px;
+    line-height: 20px;
+    position: relative;
+    top: -12px;
+}
+
+.modal-dialog .modal-content {
+    border-radius: 12px;
+}
+
+.modal-header h4 {margin: 0;color: #003a70;font-weight: 600;font-size: 18px;}
+
+.modal-dialog .modal-header {
+    padding-bottom: 10px;
+}
+
+.modal-dialog .modal-footer {
+    justify-content: center;
+    border: 0;
+    padding-top: 0;
+}
+.custom-table {
+    border: 1px solid #d7d3d3;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px 2px rgb(213 213 213 / 48%);
+}
+
+.custom-table td {
+    padding: 10px;
+    border-bottom: 1px solid #d7d3d3;
+}
+
+.custom-table table {width: 100%;}
+
+
+/* dialog style ends */
+
+/* form field design start */
+.custom-form mat-form-field .mat-form-field-flex:focus, .custom-form mat-form-field .mat-form-field-flex:hover {
+    outline: 0 !important;
+}
+
+.custom-form mat-form-field .mat-form-field-flex:hover .mat-form-field-outline {
+    opacity: 0.1 !important;
+}
+
+.custom-form .mat-form-field-appearance-outline .mat-form-field-infix {border-top: 0;padding: 16px 0 5px 0;}
+
+.custom-form .mat-form-field-appearance-outline .mat-form-field-outline {
+    height: 40px;
+}
+.custom-form .mat-form-field-appearance-outline .mat-form-field-subscript-wrapper {
+    margin-top: 10px;
+}
+.custom-form .comment .mat-form-field-appearance-outline .mat-form-field-subscript-wrapper {
+    margin-top: 22px;
+}
+.full-field.comment .mat-form-field-wrapper {height: 100px;}
+.custom-form .comment .mat-form-field-appearance-outline .mat-form-field-outline {
+    height: 100px;
+}
+/* form field ends */

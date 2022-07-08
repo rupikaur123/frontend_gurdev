@@ -235,7 +235,28 @@ export class HomeComponent implements OnInit {
     slidesToScroll: 1,
     dots: false,
     autoplay: true,
-    autoplaySpeed: 2000 
+    arrows:true,
+    autoplaySpeed: 3000 
+  }
+
+  configTeam: Slick.Config = {
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    dots: false,
+    autoplay: true,
+    arrows:true,
+    autoplaySpeed: 3000 
+  }
+
+  configSpecialities: Slick.Config = {
+    infinite: true,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    dots: false,
+    autoplay: true,
+    arrows:true,
+    autoplaySpeed: 3000 
   }
 
 }

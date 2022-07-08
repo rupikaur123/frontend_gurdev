@@ -1,3 +1,11 @@
-.about {
-  color: #003a70;
+.banner-section {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  width: 100%;
+}
+
+p.content-wrap {
+  line-height: 1.6;
 }

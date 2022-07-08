@@ -1,7 +1,23 @@
-<div>
-  <li *ngFor="let item of treatment_name">
-    <div (click)="navigate(item)" class="trtment">{{ item.name }}</div>
-  </li>
+<div class="full-page">
+  <div class="banner-section" style="background-image: url(../../assets/img/img1.jpg);">
+  </div>
 </div>
-
+<div class="custom-container">
+  <div class="common-padding">
+    <h2>Gurdev Hospitals: Services we provide</h2>
+    <ul class="services-tiles">
+      <!-- <li>
+        <div class="inner-tile">
+          Lorem Ipsum is simply dummy text
+        </div>
+      </li> -->
+      <li *ngFor="let item of treatment_name">
+        <div (click)="navigate(item)" class="inner-tile">
+          {{ item.name }}
+        </div>
+      </li>
+     
+    </ul>
+  </div>
+</div>
 

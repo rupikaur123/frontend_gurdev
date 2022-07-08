@@ -6,7 +6,7 @@ footer {
 }
 
 footer h4 {
-    font-size: 18px !important;
+    font-size: 22px !important;
     font-weight: 500 !important;
     display: inline-block;
     position: relative;
@@ -31,18 +31,18 @@ footer ul {
 }
 
 footer ul li {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
 footer ul li a {
-    color: white;
-    font-size: 13px;
+    color: white !important;
+    font-size: 14px;
     font-weight: 300;
 }
 
 footer p {
     color: white;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 300;
 }
 
@@ -95,7 +95,7 @@ footer ul li a:hover {
     font-weight: 500;
 }
 footer p a {
-    color: white;
+    color: white !important;
 }
 
 footer p a:hover {
@@ -110,8 +110,9 @@ footer p a:hover {
 
 .footer-bottom p,.footer-bottom p a {
     margin: 0;
-    color: white;
+    color: white !important;
     transition: .2s ease;
+    font-size: 13px;
 }
 
 .footer-bottom p a:hover {

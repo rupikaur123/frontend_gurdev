@@ -15,7 +15,7 @@
         <img src=" ../../assets/img/logo_gurdev_hospital-1.jpg" class="doc-img" />
       </a>
       <div class="right-content">
-        <button class="custom-btn">Enquiry 7069001001</button>
+        <a href="tel:+91-6239565525" title="+91-6239565525" class="custom-btn">Enquiry +91-6239565525</a>
         <button class="custom-btn" (click)="open(emergencyModal)">Emergency Number</button>
         <button class="custom-btn" routerLink="/book/appt">Book an appointment</button>
       </div>
@@ -26,7 +26,7 @@
 </div>
 
 
-<ng-template #emergencyModal let-modal>
+<ng-template #emergencyModal let-modal class="modal-dialog-centered">
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">EMERGENCY CONTACT NUMBERS
     </h4>
@@ -35,10 +35,32 @@
     </button>
   </div>
   <div class="modal-body">
-    Shalby Hospital , SG Highway , Ahmedabad - +918778767876 <br>
-    Shalby Hospital , Vijay Cross Road , Ahmedabad - +918665456543
+    <div class="custom-table">
+      <table>
+        <tbody>
+          <tr><td>Shalby Hospital , SG Highway , Ahmedabad</td>
+          <td> +918778767876</td>
+        </tr>
+        <tr><td>Shalby Hospital , SG Highway , Ahmedabad</td>
+          <td> +918778767876</td>
+        </tr>
+        <tr><td>Shalby Hospital , SG Highway , Ahmedabad</td>
+          <td> +918778767876</td>
+        </tr>
+        <tr><td>Shalby Hospital , SG Highway , Ahmedabad</td>
+          <td> +918778767876</td>
+        </tr>
+        <tr><td>Shalby Hospital , SG Highway , Ahmedabad</td>
+          <td> +918778767876</td>
+        </tr>
+        <tr><td>Shalby Hospital , SG Highway , Ahmedabad</td>
+          <td> +918778767876</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+    <button type="button" class="custom-btn" (click)="modal.close('Save click')">Close</button>
   </div>
 </ng-template>

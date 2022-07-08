@@ -1,12 +1,11 @@
-.align {
-  display: flex;
-  align-items: center;
+.banner-section {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  width: 100%;
 }
-.btn {
-  width: 192px;
-}
-.tabs {
-  background-color: #35b6b4;
-  color: #fff;
-  margin-right: 40px;
+
+p.content-wrap {
+  line-height: 1.6;
 }

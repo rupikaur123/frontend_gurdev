@@ -1,31 +1,73 @@
-<img [src]="baseUrl+staticList.image" />
-<h2 class="about">{{staticList.title}}</h2>
-<p>{{staticList.content}}</p>
+<div class="full-page">
+  <div class="banner-section" style="background-image: url(../../assets/img/b8.webp);">
+    <!-- <img [src]="baseUrl+staticList.image" /> -->
+  </div>
+</div>
+<div class="custom-container">
+  <div class="custom-form contact-top">
+    <form [formGroup]="bookApptForm" autocomplete="off" novalidate (ngSubmit)="onSubmit(bookApptForm.value)"
+      fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <mat-card-content>
+        <mat-form-field appearance="outline" class="form-field">
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date" id="dateOfBirth"
+            readonly (click)="picker.open()" [min]="minDate" />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <!-- <select class="custom-select mb-3" (change)="changeTreatment($event)" formControlName="services">
+            <option value="">Services</option>
+            <option *ngFor="let item of treatment_name" [value]="item.id">
+              {{ item.name }}
+            </option>
+          </select> -->
 
-<form [formGroup]="bookApptForm" autocomplete="off" novalidate (ngSubmit)="onSubmit(bookApptForm.value)"
-  fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
-  <mat-card-content>
-    <mat-form-field appearance="outline" class="form-field">
-      <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date" id="dateOfBirth"
-        readonly (click)="picker.open()" [min]="minDate" />
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <br />
-    <br />
-    <select class="custom-select mb-3" (change)="changeTreatment($event)" formControlName="services">
-      <option value="">Services</option>
-      <option *ngFor="let item of treatment_name" [value]="item.id">
-        {{ item.name }}
-      </option>
-    </select>
-    <!-- error block -->
-    <div style="color: red" *ngIf="isSubmitted && services?.invalid">
-      <sup>*</sup>Please choose the service
+        <mat-form-field appearance="outline">
+          <!-- <mat-label>Services</mat-label> -->
+          <mat-select (change)="changeTreatment($event)" formControlName="services" placeholder="Select Service">
+            <mat-option>Select Services</mat-option>
+            <mat-option *ngFor="let item of treatment_name" [value]="item.id">
+              {{ item.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="hasError('services', 'required')">
+            Please select service
+          </mat-error>
+        </mat-form-field>
+
+        <!-- error block -->
+        <div style="color: red" *ngIf="isSubmitted && services?.invalid">
+          <sup>*</sup>Please choose the service
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button class="custom-btn">Make an Appointment</button>
+      </mat-card-actions>
+    </form>
+  </div>
+
+  <div class="row map-add-wrap">
+    <div class="col-7">
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3414.0002805431504!2d76.47599931447317!3d31.16526737170992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39054cbe15530ba5%3A0xf4d154293c69bcc7!2sGurdev%20Hospital%20-%20Multi-Speciality%20Hospital!5e0!3m2!1sen!2sin!4v1657318979805!5m2!1sen!2sin"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </div>
-  </mat-card-content>
-  <br /><br />
-  <mat-card-actions>
-    <button mat-raised-button color="primary">Make an Appointment</button>
-  </mat-card-actions>
-</form>
+    <div class="col-5">
+      <div class="address-wrap">
+        <h4>Hospital Address</h4>
+        <p><i class="fa fa-map-marker" aria-hidden="true"></i> Kangar Road, Nurpur Bedi, Distt. Ropar (Pb.)</p>
+        <p><i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:gurdevhospital@gmail.com" alt="gurdevhospital@gmail.com" title="gurdevhospital@gmail.com">gurdevhospital@gmail.com </a></p>
+        <p><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:01887-292033"> 01887-292033</a>, <a href="tel:01887-292033">98154-40742 </a></p>
+        <p><i class="fa fa-globe" aria-hidden="true"></i><a href="www.gurdevhospital.co"> www.gurdevhospital.co </a></p>
+
+      </div>
+      <div class="content-wrap">
+        <h4>Gurdev Multi-specialty Hospitals </h4>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+      </div>
+    </div>
+  </div>
+</div>

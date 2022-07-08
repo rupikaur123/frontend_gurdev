@@ -1,5 +1,25 @@
-<div>
-    <li *ngFor="let item of galleryList">
-        <img [src]="baseUrl+item.image_path+item.image" />
-    </li>
+
+<div class="full-page">
+    <div class="banner-section" style="background-image: url(../../assets/img/b8.webp);">
+    </div>
 </div>
+<div class="custom-container">
+    <div class="common-padding text-center">
+        <h2>Gurdev Hospitals: Gallery</h2>
+        <p class="content-wrap">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        </p>
+   
+    <div class="gallery-wrap">
+        <ul>
+            <li *ngFor="let item of galleryList">
+                <div class="img-inner">
+                    <img [src]="baseUrl+item.image_path+item.image" />
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>
+
+
