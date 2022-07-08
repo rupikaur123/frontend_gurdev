@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute, TitleStrategy } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -24,8 +24,8 @@ export class BookApptComponent implements OnInit {
   startDate = this.maxDate;
   msg: any;
   public loading = false;
+  @ViewChild('mymodal', { read: TemplateRef }) mymodal!: TemplateRef<any>;
 
-  @ViewChild('mymodal') someInput!: 'mymodal';
   constructor(private route: ActivatedRoute, private router: Router, public http: HttpClient, private spinner: NgxSpinnerService, private modalService: NgbModal) {
     this.service_id = this.route.snapshot.params['id'];
     console.log('Book_Appointment', this.service_id);
@@ -92,7 +92,7 @@ export class BookApptComponent implements OnInit {
             console.log("Data" + this.data);
             if (this.data.success == true) {
               this.msg = this.data.message
-              // this.open(mymodal)
+              this.open(this.mymodal)
             }
             this.isSubmitted = false;
             this.bookApptForm.reset()
@@ -101,12 +101,10 @@ export class BookApptComponent implements OnInit {
             console.log('failed with the errors', err.error);
             if (err.error) {
               this.msg = err.error.message
-              // this.open(mymodal)
-              // this.toster.error(err.error.message);
+              this.open(this.mymodal)
             } else {
               this.msg = 'Something went wrong'
-              // this.open(mymodal)
-              // this.toster.error('Something went wrong');
+              this.open(this.mymodal)
             }
           },
           complete: () => { },
@@ -125,12 +123,10 @@ export class BookApptComponent implements OnInit {
         console.log('failed with the errors', err.error);
         if (err.error) {
           this.msg = err.error.message
-          // this.open(mymodal)
-          // this.toster.error(err.error.message);
+          this.open(this.mymodal)
         } else {
           this.msg = 'Something went wrong'
-          // this.open(mymodal)
-          // this.toster.error('Something went wrong');
+          this.open(this.mymodal)
         }
       },
       complete: () => { },
