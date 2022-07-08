@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router, ActivatedRoute, TitleStrategy } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { NgxSpinnerService } from "ngx-spinner";
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-book-appt',
@@ -13,18 +16,28 @@ export class BookApptComponent implements OnInit {
   isSubmitted = false;
   treatment_name: any = {}
   public bookApptForm!: FormGroup;
+  closeResult?: string;
   baseUrl: any = 'http://api.gurdevhospital.co/';
   res: any
-  service:any
-  constructor(private route: ActivatedRoute, private router: Router, public http: HttpClient) {
+  service: any
+  maxDate = new Date(Date.now());
+  startDate = this.maxDate;
+  msg: any;
+  public loading = false;
+
+  @ViewChild('mymodal') someInput!: 'mymodal';
+  constructor(private route: ActivatedRoute, private router: Router, public http: HttpClient, private spinner: NgxSpinnerService, private modalService: NgbModal) {
     this.service_id = this.route.snapshot.params['id'];
     console.log('Book_Appointment', this.service_id);
+    this.maxDate.setDate(this.maxDate.getDate());
+    this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
+    this.startDate = this.maxDate;
   }
-  data:any
+  data: any
   ngOnInit() {
     this.getServiceList()
     this.serviceForm()
-  
+
   }
   serviceForm() {
     let MOBILE_PATTERN = /[0-9\+\-\ ]/;
@@ -33,7 +46,7 @@ export class BookApptComponent implements OnInit {
         Validators.required,
         Validators.maxLength(60),
       ]),
-      date: new FormControl(new Date()),
+      date: new FormControl(''),
       email: new FormControl('', [Validators.email]),
       address: new FormControl('', [Validators.maxLength(100)]),
       services: new FormControl(this.service_id, [Validators.required]),
@@ -43,8 +56,8 @@ export class BookApptComponent implements OnInit {
       ]),
       comments: new FormControl(''),
     });
-   
-  
+
+
   }
   changeTreatment(e: any) {
     this.services?.setValue(e.target.value, {
@@ -58,12 +71,12 @@ export class BookApptComponent implements OnInit {
   hasError(controlName: string, errorName: string) {
     return this.bookApptForm.controls[controlName].hasError(errorName);
   }
+
   onSubmit(bookApptValue: any) {
-    console.log('Submit', this.bookApptForm.value);
     this.isSubmitted = true;
     if (this.bookApptForm.invalid) {
       return;
-    } else{
+    } else {
       let formdata = new FormData()
       formdata.append('u_full_name', this.bookApptForm.value.name)
       formdata.append('u_phone_number', this.bookApptForm.value.phoneNumber)
@@ -72,28 +85,32 @@ export class BookApptComponent implements OnInit {
       formdata.append('u_address', this.bookApptForm.value.address)
       formdata.append('u_dob', this.bookApptForm.value.date)
       formdata.append('comment', this.bookApptForm.value.comments)
-      this.http.post<any>(this.baseUrl + 'api/static_pages', formdata)
-      .subscribe({
-        next: (response: any) => {
+      this.http.post<any>(this.baseUrl + 'api/book_appointment', formdata)
+        .subscribe({
+          next: (response: any) => {
             this.data = response
-              console.log("Data" + this.data);
-              // if (this.data.success == true) {
-              //   this.toster.success(this.data.message);
-              // }
-            
-              this.isSubmitted = false;
-              this.bookApptForm.reset()
-        },
-        error: (err: any) => {
-          console.log('failed with the errors', err.error);
-          if (err.error) {
-            // this.toster.error(err.error.message);
-          } else {
-            // this.toster.error('Something went wrong');
-          }
-        },
-        complete: () => {},
-      });
+            console.log("Data" + this.data);
+            if (this.data.success == true) {
+              this.msg = this.data.message
+              // this.open(mymodal)
+            }
+            this.isSubmitted = false;
+            this.bookApptForm.reset()
+          },
+          error: (err: any) => {
+            console.log('failed with the errors', err.error);
+            if (err.error) {
+              this.msg = err.error.message
+              // this.open(mymodal)
+              // this.toster.error(err.error.message);
+            } else {
+              this.msg = 'Something went wrong'
+              // this.open(mymodal)
+              // this.toster.error('Something went wrong');
+            }
+          },
+          complete: () => { },
+        });
     }
   }
   getServiceList() {
@@ -107,12 +124,33 @@ export class BookApptComponent implements OnInit {
       error: (err: any) => {
         console.log('failed with the errors', err.error);
         if (err.error) {
+          this.msg = err.error.message
+          // this.open(mymodal)
           // this.toster.error(err.error.message);
         } else {
+          this.msg = 'Something went wrong'
+          // this.open(mymodal)
           // this.toster.error('Something went wrong');
         }
       },
       complete: () => { },
     });
+  }
+  open(content: any) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 }

@@ -12,6 +12,8 @@ export class ContactUsComponent implements OnInit {
   isSubmitted = false;
   public bookApptForm!: FormGroup;
   staticList: any = []
+  minDate = new Date();
+
   res: any;
   treatment_name:any=[]
   baseUrl: any = 'http://api.gurdevhospital.co/';

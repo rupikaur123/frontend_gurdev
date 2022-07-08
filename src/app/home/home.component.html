@@ -61,6 +61,7 @@
       <ng-container *ngIf="slickController.initialize">
         <div class="img-wrap" slickItem *ngFor="let item of treatment_name">
           <img [src]="baseUrl + item.image" />
+        <strong>{{item.name}}</strong>  
         </div>
       </ng-container>
     </div>
@@ -141,6 +142,25 @@
   </div>
 </div>
 
+<div class="hospital-tour common-padding">
+  <div class="custom-container">
+    <h2><span> Our Team of Experts </span></h2>
+    <div
+      slickContainer
+      #slickController="slick"
+      [slickConfig]="configHospitalTour"
+    >
+      <ng-container *ngIf="slickController.initialize">
+        <div class="img-wrap" slickItem *ngFor="let item of doctorList">
+          <img [src]="baseUrl+item.image" />
+          <h4> <strong>{{item.first_name+' '+ item.last_name}}</strong></h4>
+          <strong>{{item.qualification}}</strong><br>
+          <strong>{{item.profession}}</strong>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
 <div class="hospital-tour common-padding">
   <div class="custom-container">
     <h2><span> Hospital Tour </span></h2>

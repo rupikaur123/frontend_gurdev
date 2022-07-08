@@ -1,14 +1,14 @@
 <div class="header-inner">
   <mat-toolbar class="bg-blue">
     <div class="custom-container">
-    <a routerLink="/">Home</a>
-    <a routerLink="/about">About Us</a>
-    <a routerLink="/book/appt">Book an appointment</a>
-    <a routerLink="/treatment">Treatments</a>
-    <a routerLink="/contact">Contact Us</a>
+      <a routerLink="/">Home</a>
+      <a routerLink="/about">About Us</a>
+      <a routerLink="/book/appt">Book an appointment</a>
+      <a routerLink="/treatment">Treatments</a>
+      <a routerLink="/contact">Contact Us</a>
     </div>
   </mat-toolbar>
-  
+
   <div class="custom-container">
     <div class="logo-btn-bar">
       <a href="#" class="logo-wrap">
@@ -16,7 +16,7 @@
       </a>
       <div class="right-content">
         <button class="custom-btn">Enquiry 7069001001</button>
-        <button class="custom-btn">Emergency Number</button>
+        <button class="custom-btn" (click)="open(emergencyModal)">Emergency Number</button>
         <button class="custom-btn" routerLink="/book/appt">Book an appointment</button>
       </div>
 
@@ -26,3 +26,19 @@
 </div>
 
 
+<ng-template #emergencyModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">EMERGENCY CONTACT NUMBERS
+    </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Shalby Hospital , SG Highway , Ahmedabad - +918778767876 <br>
+    Shalby Hospital , Vijay Cross Road , Ahmedabad - +918665456543
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+  </div>
+</ng-template>

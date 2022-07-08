@@ -29,6 +29,9 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { TermsComponent } from './terms/terms.component';
 import {  NgxSlickJsModule} from 'ngx-slickjs';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxLoadingModule } from "ngx-loading";
+import { NgHttpLoaderModule } from 'ng-http-loader';
 
 @NgModule({
   declarations: [
@@ -49,6 +52,7 @@ import {  NgxSlickJsModule} from 'ngx-slickjs';
   ],
   imports: [
     BrowserModule,
+    NgxSpinnerModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -62,7 +66,9 @@ import {  NgxSlickJsModule} from 'ngx-slickjs';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
+    NgHttpLoaderModule.forRoot(),
     HttpClientModule,
+    NgxLoadingModule.forRoot({}),
      NgxSlickJsModule.forRoot({
       links: {
         jquery: "https://code.jquery.com/jquery-3.4.0.min.js",
