@@ -13,6 +13,7 @@ export class GalleryComponent implements OnInit {
   constructor(private route: Router, public http: HttpClient) {}
 
   ngOnInit(): void {
+    localStorage.setItem('page', '')
     this.getGalleryList();
   }
   getGalleryList() {

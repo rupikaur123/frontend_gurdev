@@ -18,6 +18,7 @@ export class NewsDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    localStorage.setItem('page', '')
     this.getNewsDetails()
   }
   getNewsDetails() {

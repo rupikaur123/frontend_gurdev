@@ -15,10 +15,12 @@ export class LatestNewsComponent implements OnInit {
   constructor(private route: Router, public http: HttpClient) {}
 
   ngOnInit(): void {
+    localStorage.setItem('page', '')
     this.getServiceList();
   }
-  navigate(data: any) {
-    this.route.navigate(['/news/details/' + data.id]);
+  navigate() {
+    console.log('&&')
+    this.route.navigate(['/news/details']);
   }
   getServiceList() {
     this.http.get<any>(this.baseUrl + 'api/get_latest_news').subscribe({

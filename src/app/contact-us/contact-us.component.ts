@@ -15,14 +15,23 @@ export class ContactUsComponent implements OnInit {
   minDate = new Date();
 
   res: any;
-  treatment_name:any=[]
+  treatment_name: any = []
   baseUrl: any = 'http://api.gurdevhospital.co/';
   constructor(private route: ActivatedRoute, private router: Router, public http: HttpClient) { }
   ngOnInit(): void {
+    let MOBILE_PATTERN = /[0-9\+\-\ ]/;
     this.getServiceList();
     this.getStaticList();
     this.bookApptForm = new FormGroup({
-      date: new FormControl(new Date()),
+      // date: new FormControl(new Date()),
+      name: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(60),
+      ]),
+      phoneNumber: new FormControl('', [
+        Validators.required,
+        Validators.pattern(MOBILE_PATTERN),
+      ]),
       services: new FormControl('', [Validators.required]),
     });
   }
@@ -42,7 +51,7 @@ export class ContactUsComponent implements OnInit {
           // this.toster.error('Something went wrong');
         }
       },
-      complete: () => {},
+      complete: () => { },
     });
   }
   changeTreatment(e: any) {
@@ -82,6 +91,10 @@ export class ContactUsComponent implements OnInit {
     if (this.bookApptForm.invalid) {
       return;
     } else {
+      localStorage.setItem('name', this.bookApptForm.value.name)
+      localStorage.setItem('phone', this.bookApptForm.value.phoneNumber)
+      localStorage.setItem('services', this.bookApptForm.value.services)
+      localStorage.setItem('page', 'contact')
       this.router.navigate(['/book/appt']);
     }
   }

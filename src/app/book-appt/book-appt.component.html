@@ -3,40 +3,42 @@
 
     <div class="custom-form">
       <h2 align="center">Book Appointment</h2>
-      <form [formGroup]="bookApptForm" autocomplete="off" novalidate (ngSubmit)="onSubmit(bookApptForm.value)"
+      <form [formGroup]="bookApptForm" autocomplete="off" novalidate (ngSubmit)="onSubmit()"
         fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
         <mat-card-content>
-          <mat-form-field appearance="outline" class="form-field">
-            <input matInput type="text" placeholder="Full Name" formControlName="name" id="name" />
-            <mat-hint align="end">Not more then 60 characters long.</mat-hint>
-            <mat-error *ngIf="hasError('name', 'required')">Name is required</mat-error>
-            <mat-error *ngIf="hasError('name', 'maxlength')">You have more than 60 characters</mat-error>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" placeholder="Full Name" formControlName="name" [ngClass]="{'form-submitted': isSubmitted}"/>
+            <!-- <mat-hint align="end">Not more then 60 characters long.</mat-hint> -->
+            <mat-error *ngIf="isSubmitted && hasError('name', 'required')">Name is required</mat-error>
+            <mat-error *ngIf="isSubmitted && hasError('name', 'maxlength')">You have more than 60 characters</mat-error>
           </mat-form-field>
-          <mat-form-field appearance="outline" class="form-field">
+          <mat-form-field appearance="outline">
             <input matInput [matDatepicker]="picker" placeholder="Date Of Birth" formControlName="date" id="dateOfBirth"
-              readonly (click)="picker.open()" />
+              readonly (click)="picker.open()" [max]="today" [ngClass]="{'form-submitted': isSubmitted}"/>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
-            <mat-hint align="end">Optional.</mat-hint>
+            <mat-error *ngIf="isSubmitted && hasError('date', 'required')">DOB is required</mat-error>
+            <!-- <mat-hint align="end">Optional.</mat-hint> -->
           </mat-form-field>
           <mat-form-field appearance="outline" class="form-field">
             <input matInput type="text" placeholder="Address" formControlName="address" />
-            <mat-hint align="end">Not more then 100 characters long.</mat-hint>
-            <mat-error *ngIf="hasError('address', 'maxlength')">You have more than 100 characters</mat-error>
-            <mat-hint align="end">Optional.</mat-hint>
+            <!-- <mat-hint align="end">Not more then 100 characters long.</mat-hint> -->
+            <mat-error *ngIf="isSubmitted && hasError('address', 'maxlength')">You have more than 100 characters</mat-error>
+            <!-- <mat-hint align="end">Optional.</mat-hint> -->
           </mat-form-field>
           <mat-form-field appearance="outline" class="form-field">
             <!-- <mat-label>Email Address</mat-label> -->
             <input type="text" matInput formControlName="email" class="form-input-field"
-              pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" />
-            <mat-error *ngIf="hasError('email', 'email')">Please enter a valid email address</mat-error>
+              pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" placeholder="Email" />
+              <mat-error *ngIf="isSubmitted && hasError('email', 'required')">Email is required</mat-error>
+            <mat-error *ngIf="isSubmitted && hasError('email', 'email')">Please enter a valid email address</mat-error>
           </mat-form-field>
         </mat-card-content>
         <mat-form-field appearance="outline" class="form-field">
           <input matInput placeholder="Phone number" formControlName="phoneNumber" required maxlength="10" />
-          <mat-hint align="end">Must be digits only.</mat-hint>
-          <mat-error *ngIf="hasError('phoneNumber', 'required')">Phone number is <strong>required</strong></mat-error>
-          <mat-error *ngIf="hasError('phoneNumber', 'pattern')">
+          <!-- <mat-hint align="end">Must be digits only.</mat-hint> -->
+          <mat-error *ngIf="isSubmitted && hasError('phoneNumber', 'required')">Phone number is required</mat-error>
+          <mat-error *ngIf="isSubmitted && hasError('phoneNumber', 'pattern')">
             Please enter valid mumber
           </mat-error>
         </mat-form-field>
@@ -44,18 +46,18 @@
         <mat-form-field appearance="outline" *ngIf="treatment_name.length>0">
           <!-- <mat-label>Services</mat-label> -->
           <mat-select formControlName="services">
-            <mat-option *ngFor="let x of treatment_name" [value]="x.id">
+            <mat-option *ngFor="let x of treatment_name" [value]="x.name">
               {{x.name}}
             </mat-option>
           </mat-select>
-          <mat-error *ngIf="hasError('services', 'required')">
+          <mat-error *ngIf="isSubmitted && hasError('services', 'required')">
             Please select service
           </mat-error>
         </mat-form-field>
         <div class="full-field comment">
           <mat-form-field appearance="outline" class="form-field">
             <input matInput type="text" placeholder="Comment" formControlName="comments" id="name" />
-            <mat-hint align="end">Optional.</mat-hint>
+            <!-- <mat-hint align="end">Optional.</mat-hint> -->
           </mat-form-field>
         </div>
 

@@ -136,6 +136,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    localStorage.setItem('page', '')
     this.getReviewList()
     this.getServiceList()
     this.getGalleryList()
@@ -218,7 +219,9 @@ export class HomeComponent implements OnInit {
   navigate() {
     this.route.navigate(['/treatment']);
   }
-
+  redirect(){
+    this.route.navigate(['/news/details']);
+  }
   // slick config
 
   config: Slick.Config = {

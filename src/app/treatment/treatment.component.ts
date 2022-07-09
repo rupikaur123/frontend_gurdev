@@ -14,6 +14,7 @@ export class TreatmentComponent implements OnInit {
   constructor(private route: Router, public http: HttpClient) {}
 
   ngOnInit(): void {
+    localStorage.setItem('page', '')
     this.getServiceList();
   }
   navigate(data: any) {

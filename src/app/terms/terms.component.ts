@@ -14,6 +14,7 @@ export class TermsComponent implements OnInit {
   constructor(private route: Router, public http: HttpClient) { }
 
   ngOnInit(): void {
+    localStorage.setItem('page', '')
     this.getStaticList();
   }
   getStaticList() {

@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute, TitleStrategy } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder, FormGroupDirective } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { NgxSpinnerService } from "ngx-spinner";
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
@@ -23,11 +23,19 @@ export class BookApptComponent implements OnInit {
   service: any
   maxDate = new Date(Date.now());
   startDate = this.maxDate;
+  today = new Date()
+
   msg: any;
   public loading = false;
+  name: any = ''
+  phone: any = ''
+  treatment: any = ''
+  page: any = ''
+
+  @ViewChild(FormGroupDirective) formDirective!: FormGroupDirective;
   @ViewChild('mymodal', { read: TemplateRef }) mymodal!: TemplateRef<any>;
 
-  constructor(private route: ActivatedRoute, private router: Router, public http: HttpClient, private spinner: NgxSpinnerService, private modalService: NgbModal) {
+  constructor(private route: ActivatedRoute, private router: Router, public http: HttpClient, private spinner: NgxSpinnerService, private modalService: NgbModal, private formBuilder: FormBuilder) {
     this.service_id = this.route.snapshot.params['id'];
     console.log('Book_Appointment', this.service_id);
     this.maxDate.setDate(this.maxDate.getDate());
@@ -36,26 +44,31 @@ export class BookApptComponent implements OnInit {
   }
   data: any
   ngOnInit() {
+    this.page = localStorage.getItem('page')
+    if (this.page == 'contact' && this.service_id == undefined) {
+      this.name = localStorage.getItem('name')
+      this.phone = localStorage.getItem('phone')
+      this.treatment = localStorage.getItem('services')
+    }
     this.getServiceList()
     this.serviceForm()
-
   }
   serviceForm() {
     let MOBILE_PATTERN = /[0-9\+\-\ ]/;
-    this.bookApptForm = new FormGroup({
-      name: new FormControl('', [
+    this.bookApptForm = this.formBuilder.group({
+      name: [this.name, [
         Validators.required,
         Validators.maxLength(60),
-      ]),
-      date: new FormControl(''),
-      email: new FormControl('', [Validators.email]),
-      address: new FormControl('', [Validators.maxLength(100)]),
-      services: new FormControl(this.service_id, [Validators.required]),
-      phoneNumber: new FormControl('', [
+      ]],
+      date: ['', [Validators.required,]],
+      email: ['', [Validators.email, Validators.required,]],
+      address: ['', [Validators.maxLength(100)]],
+      services: [this.treatment, [Validators.required]],
+      phoneNumber: [this.phone, [
         Validators.required,
         Validators.pattern(MOBILE_PATTERN),
-      ]),
-      comments: new FormControl(''),
+      ]],
+      comments: [''],
     });
 
 
@@ -73,15 +86,19 @@ export class BookApptComponent implements OnInit {
     return this.bookApptForm.controls[controlName].hasError(errorName);
   }
 
-  onSubmit(bookApptValue: any) {
-    this.isSubmitted = true;
+  onSubmit() {
     if (this.bookApptForm.invalid) {
+      console.log('**')
+      this.isSubmitted = true;
       return;
     } else {
+      let serviceId = this.treatment_name.filter((x: any) => {
+        return x.name == this.bookApptForm.value.services
+      })
       let formdata = new FormData()
       formdata.append('u_full_name', this.bookApptForm.value.name)
       formdata.append('u_phone_number', this.bookApptForm.value.phoneNumber)
-      formdata.append('service_id', this.bookApptForm.value.services)
+      formdata.append('service_id', serviceId[0].id)
       formdata.append('u_email', this.bookApptForm.value.email)
       formdata.append('u_address', this.bookApptForm.value.address)
       formdata.append('u_dob', moment(this.bookApptForm.value.date).format('DD-MM-YYYY'))
@@ -89,14 +106,19 @@ export class BookApptComponent implements OnInit {
       this.http.post<any>(this.baseUrl + 'api/book_appointment', formdata)
         .subscribe({
           next: (response: any) => {
+            this.isSubmitted = false;
+            this.formDirective.resetForm();
+            localStorage.removeItem('page')
+            localStorage.removeItem('name')
+            localStorage.removeItem('phone')
+            localStorage.removeItem('services')
             this.data = response
             console.log("Data" + this.data);
             if (this.data.success == true) {
               this.msg = this.data.message
               this.open(this.mymodal)
             }
-            this.isSubmitted = false;
-            this.bookApptForm.reset()
+
           },
           error: (err: any) => {
             console.log('failed with the errors', err.error);
@@ -118,7 +140,7 @@ export class BookApptComponent implements OnInit {
         console.log('Get completed sucessfully. The response received ' + data);
         this.res = data.data;
         this.treatment_name = this.res;
-        console.log('treatment_name', this.treatment_name);
+        console.log('treatment_name', this.treatment_name, this.service_id);
       },
       error: (err: any) => {
         console.log('failed with the errors', err.error);
