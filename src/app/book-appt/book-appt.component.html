@@ -14,7 +14,7 @@
           </mat-form-field>
           <mat-form-field appearance="outline" class="form-field">
             <input matInput [matDatepicker]="picker" placeholder="Date Of Birth" formControlName="date" id="dateOfBirth"
-              readonly (click)="picker.open()" [max]="maxDate" />
+              readonly (click)="picker.open()" />
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             <mat-hint align="end">Optional.</mat-hint>

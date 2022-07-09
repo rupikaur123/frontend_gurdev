@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { NgxSpinnerService } from "ngx-spinner";
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import * as moment from 'moment';
 
 
 @Component({
@@ -83,7 +84,7 @@ export class BookApptComponent implements OnInit {
       formdata.append('service_id', this.bookApptForm.value.services)
       formdata.append('u_email', this.bookApptForm.value.email)
       formdata.append('u_address', this.bookApptForm.value.address)
-      formdata.append('u_dob', this.bookApptForm.value.date)
+      formdata.append('u_dob', moment(this.bookApptForm.value.date).format('DD-MM-YYYY'))
       formdata.append('comment', this.bookApptForm.value.comments)
       this.http.post<any>(this.baseUrl + 'api/book_appointment', formdata)
         .subscribe({
