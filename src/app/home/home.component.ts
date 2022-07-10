@@ -230,7 +230,21 @@ export class HomeComponent implements OnInit {
     slidesToScroll: 1,
     dots: false,
     autoplay: false,
-    autoplaySpeed: 2000 
+    autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 2
+        }
+      }
+    ]
   }
   configHospitalTour: Slick.Config = {
     infinite: true,
@@ -239,7 +253,21 @@ export class HomeComponent implements OnInit {
     dots: false,
     autoplay: true,
     arrows:true,
-    autoplaySpeed: 3000 
+    autoplaySpeed: 3000 ,
+    responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
   }
 
   configTeam: Slick.Config = {
@@ -249,7 +277,21 @@ export class HomeComponent implements OnInit {
     dots: false,
     autoplay: true,
     arrows:true,
-    autoplaySpeed: 3000 
+    autoplaySpeed: 3000 ,
+    responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
   }
 
   configSpecialities: Slick.Config = {
@@ -259,7 +301,45 @@ export class HomeComponent implements OnInit {
     dots: false,
     autoplay: true,
     arrows:true,
-    autoplaySpeed: 3000 
+    autoplaySpeed: 3000 ,
+    responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 4
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 2
+        }
+      }
+    ]
+  }
+
+  configReview: Slick.Config = {
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    dots: false,
+    autoplay: true,
+    arrows:true,
+    autoplaySpeed: 3000 ,
+    responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
   }
 
 }

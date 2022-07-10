@@ -6,8 +6,11 @@ ngb-carousel .wrapper {
 /* slider style start */
 
 .main-slider img {
-    width: 100%;
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
 }
+
 ngb-carousel .wrapper::after {
   content: "";
   position: absolute;
@@ -19,6 +22,7 @@ ngb-carousel .wrapper::after {
   left: 0;
   display: none;
 }
+
 /* blog section style start */
 .blog-section mat-card {
   background: transparent;
@@ -76,6 +80,7 @@ ngb-carousel .wrapper::after {
   font-size: 45px;
   margin: 0;
   margin-bottom: 15px;
+  font-weight: 600;
 }
 
 .our-facility .text-inner p {
@@ -85,15 +90,11 @@ ngb-carousel .wrapper::after {
 }
 
 /* our faciity ends */
-
-.hospital-tour .slick-slider {
-  margin-top: 30px;
-}
-
 .hospital-tour .img-wrap img {
   width: 100%;
   height: 100%;
   transition: .2s ease-out;
+  object-fit: cover;
 }
 
 .hospital-tour .img-wrap:hover img {
@@ -135,14 +136,21 @@ ngb-carousel .wrapper::after {
   margin: 0 auto;
   margin-bottom: 9px;
 }
+
 .our-speciality .img-wrap h4 {
   margin: 0;
   font-size: 16px;
+  line-height: 1.3;
+}
+
+.our-team .inner-wrap {
+  padding: 0 10px;
 }
 
 .our-team .img-wrap img {
   text-align: center;
   margin: 0 auto;
+  width: 100%;
 }
 
 .our-team .text-wrap {
@@ -172,11 +180,13 @@ ngb-carousel .wrapper::after {
   display: flex;
   display: -ms-flexbox;
   align-items: center;
-  margin: 30px 0;
+  margin: 40px 0;
+  flex-wrap: wrap;
 }
 
 .latest-news .inner-wrap {
   padding: 0 10px;
+  width: 33.333%;
 }
 
 .latest-news .inner-wrap img {
@@ -191,19 +201,139 @@ ngb-carousel .wrapper::after {
 .latest-news .inner-wrap .text-wrap h2 {
   text-align: left;
   font-size: 18px;
+  cursor: pointer;
+}
+
+.latest-news .inner-wrap .text-wrap h2:hover {
+  color: #35b6b4 !important;
 }
 
 .news-section {
   text-align: center;
 }
+
 .latest-news .detail-link {
   font-weight: 600;
   text-decoration: underline !important;
   display: inline-block;
 }
 
-p.post-meta a, p.post-meta {
+p.post-meta a,
+p.post-meta {
   font-size: 14px;
 }
 
 /* news section ends */
+
+/* review sedtion strat */
+.white-box {
+  background: white;
+  padding: 40px 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 10px;
+}
+
+.review-section {
+  background: #eaf3fc;
+}
+
+.white-box .img-wrap {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid;
+  margin-bottom: 20px;
+  vertical-align: middle;
+}
+
+.white-box .img-wrap img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.white-box .text-wrap p {
+  margin-bottom: 20px;
+}
+
+.white-box .text-wrap h4 {
+  text-transform: uppercase;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* review section ends */
+
+/* responsive start */
+@media (max-width: 1199.98px) {
+  ngb-carousel .wrapper {
+    height: 450px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .slick-slider {
+    margin-top: 40px;
+  }
+
+  ngb-carousel .wrapper {
+    height: 350px;
+  }
+
+  .our-speciality .img-wrap h4 {
+    font-size: 14px;
+  }
+
+  .our-speciality h3 {
+    font-size: 14px;
+  }
+
+  .our-team .text-wrap h4 {
+    font-size: 16px;
+    margin: 5px;
+  }
+
+  .our-team .text-wrap p {
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+
+  .our-facility .text-inner h1 {
+    font-size: 30px;
+  }
+
+  .latest-news {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .img-content .row {
+    flex-direction: column-reverse;
+  }
+
+  .img-content button.custom-btn {
+    margin-bottom: 20px;
+  }
+
+  .slick-slider {
+    margin-top: 20px;
+  }
+
+  .our-facility .text-inner p {
+    font-size: 12px;
+  }
+
+  .latest-news .inner-wrap {
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 0;
+  }
+
+  ngb-carousel .wrapper {
+    height: 200px;
+  }
+
+}

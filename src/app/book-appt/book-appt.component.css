@@ -27,6 +27,7 @@
   margin-left: auto;
   padding: 20px;
 }
+
 .custom-form h2 {
   color: #003a70;
   font-size: 28px;
@@ -35,24 +36,49 @@
 }
 
 .custom-form mat-form-field {
-    width: 50%;
-    padding: 0 10px;
-    margin-bottom: 10px;
+  width: 50%;
+  padding: 0 10px;
 }
 
 .full-field {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 .full-field mat-form-field {
-    width: 100%;
+  width: 100%;
+}
+.full-field button.custom-btn {
+  margin-top: 20px;
 }
 
-  /* .ng-valid.ng-dirty:not(form) {
+/* .ng-valid.ng-dirty:not(form) {
     border: solid 2px lightgreen;
   }
 
   .ng-invalid.ng-dirty:not(form), .ng-invalid:not(form).form-submitted {
     border: solid 2px lightcoral;
   } */
+
+
+@media (max-width: 767.98px) {
+  .banner-section[_ngcontent-kiw-c105] {
+    height: 250px;
+  }
+
+  .custom-form h2 {
+    font-size: 24px;
+  }
+
+  .custom-form {
+    padding: 20px 10px;
+  }
+
+  .custom-form mat-form-field {
+    width: 100%;
+  }
+
+  .full-page {
+    padding: 40px 0;
+  }
+}

@@ -227,6 +227,69 @@
   </div>
 </div>
 
+
+<div class="review-section common-padding">
+  <div class="custom-container">
+    <h2><span> What Our Patients Say </span></h2>
+
+    <div class="review-slider" slickContainer #slickController="slick" [slickConfig]="configReview">
+      <div class="white-box" slickItem>
+        <div class="img-wrap">
+          <img src="../../assets/img/b12.jpg" alt="">
+        </div>
+        <div class="text-wrap">
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>
+          <h4>Patient Name</h4>
+          <span>Patient</span>
+        </div>
+      </div>
+      <div class="white-box" slickItem>
+        <div class="img-wrap">
+          <img src="../../assets/img/appointment-bg.jpg" alt="">
+        </div>
+        <div class="text-wrap">
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>
+          <h4>Patient Name</h4>
+          <span>Patient</span>
+        </div>
+      </div>
+      <div class="white-box" slickItem>
+        <div class="img-wrap">
+          <img src="../../assets/img/doctor-icon.webp" alt="">
+        </div>
+        <div class="text-wrap">
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>
+          <h4>Patient Name</h4>
+          <span>Patient</span>
+        </div>
+      </div>
+      <div class="white-box" slickItem>
+        <div class="img-wrap">
+          <img src="../../assets/img/b12.jpg" alt="">
+        </div>
+        <div class="text-wrap">
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>
+          <h4>Patient Name</h4>
+          <span>Patient</span>
+        </div>
+      </div>
+      <div class="white-box" slickItem>
+        <div class="img-wrap">
+          <img src="../../assets/img/b12.jpg" alt="">
+        </div>
+        <div class="text-wrap">
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          <h4>Patient Name</h4>
+          <span>Patient</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
 <div class="news-section common-padding">
   <div class="custom-container">
     <h2><span>Latest News </span></h2>
@@ -237,12 +300,15 @@
           <img src="../../assets/img/news.png" alt="">
         </div>
         <div class="text-wrap">
-          <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+          <h2 (click)="navigate()">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
           <p class="post-meta">
-            <a class="post-time" href=""><span class="entry-date">July 5, 2022</span></a> by <a class="" href="">Gurdev Superspeciality Hospital</a>              
-            </p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect()">More Detail</a>
+            <a class="post-time" href=""><span class="entry-date">July 5, 2022</span></a> by <a class="" href="">Gurdev
+              Superspeciality Hospital</a>
+          </p>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book.</p>
+          <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect()">More Detail</a>
         </div>
       </div>
 
@@ -251,12 +317,15 @@
           <img src="../../assets/img/news.png" alt="">
         </div>
         <div class="text-wrap">
-          <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+          <h2 (click)="navigate()">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
           <p class="post-meta">
-            <a class="post-time" href=""><span class="entry-date">July 5, 2022</span></a> by <a class="" href="">Gurdev Superspeciality Hospital</a>              
-            </p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect()">More Detail</a>
+            <a class="post-time" href=""><span class="entry-date">July 5, 2022</span></a> by <a class="" href="">Gurdev
+              Superspeciality Hospital</a>
+          </p>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book.</p>
+          <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect()">More Detail</a>
         </div>
       </div>
 
@@ -265,16 +334,19 @@
           <img src="../../assets/img/news.png" alt="">
         </div>
         <div class="text-wrap">
-          <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+          <h2 (click)="navigate()">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
           <p class="post-meta">
-            <a class="post-time" href=""><span class="entry-date">July 5, 2022</span></a> by <a class="" href="">Gurdev Superspeciality Hospital</a>              
-            </p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect()">More Detail</a>
+            <a class="post-time" href=""><span class="entry-date">July 5, 2022</span></a> by <a class="" href="">Gurdev
+              Superspeciality Hospital</a>
+          </p>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book.</p>
+          <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect()">More Detail</a>
         </div>
       </div>
 
-    
+
     </div>
 
     <button class="custom-btn" title="Read More"><i class="fa fa-arrow-right" aria-hidden="true"></i>Read

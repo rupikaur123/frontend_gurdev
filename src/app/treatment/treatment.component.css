@@ -17,7 +17,9 @@ ul.services-tiles {
   align-items: center;
   flex-wrap: wrap;
   margin: 0;
+  margin: 0 -10px;
   margin-top: 30px;
+  padding: 0;
 }
 
 ul.services-tiles li {
@@ -28,12 +30,34 @@ ul.services-tiles li {
 ul.services-tiles .inner-tile {
   background: #35b6b4;
   color: white;
-    height: 50px;
-    margin-bottom: 20px;
-    display: flex;
-    display: -ms-flexbox;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    cursor: pointer;
+  height: 50px;
+  margin-bottom: 20px;
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+/* responsive */
+@media (max-width: 991.98px) {
+  ul.services-tiles li {
+    width: 50%;
+  }
+
+  .banner-section {
+    height: 300px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  ul.services-tiles li {
+    width: 100%;
+  }
+
+  .banner-section {
+    height: 200px;
+  }
 }

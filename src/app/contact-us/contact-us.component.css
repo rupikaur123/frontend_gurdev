@@ -12,7 +12,7 @@
 
   .contact-top {
     background-color: white;
-    padding: 20px;
+    padding: 20px 20px 10px;
     width: 100%;
     box-shadow: 0px 2px 10px 0px rgb(0 0 0 / 35%);
     -webkit-box-shadow: 0px 2px 10px 0px rgb(0 0 0 / 35%);
@@ -20,8 +20,8 @@
 }
 
 .contact-top mat-form-field {
-    width: 40%;
-    padding: 0 10px;
+    width: 25%;
+    padding: 0 5px;
 }
 
 .contact-top mat-card-actions {
@@ -59,3 +59,46 @@
 .address-wrap p:hover i {
     color: #35b6b4;
 }
+.map-wrap iframe {
+    width: 100%;
+}
+.contact-top .custom-btn {
+    margin: 0 5px;
+}
+
+/* responsive */
+@media (max-width: 1199.98px) {
+.map-add-wrap {
+    margin: 40px 0;
+}
+
+.map-add-wrap h4 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+}
+@media (max-width: 991.98px) {
+    .banner-section {
+      height: 300px;
+    }
+    .map-add-wrap h4 {
+        font-size: 18px;
+    }
+  }
+  
+  @media (max-width: 767.98px) {
+    .banner-section {
+      height: 200px;
+    } 
+    .map-wrap {
+        margin-bottom: 20px;
+    }
+    
+    .contact-top mat-form-field {
+        width: 50%;
+    }
+    
+    .contact-top {
+        padding: 20px 10px 7px;
+    }
+  }

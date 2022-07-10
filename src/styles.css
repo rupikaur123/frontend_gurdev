@@ -4,7 +4,9 @@
 * {
     box-sizing: border-box;
 }
-html, body {
+
+html,
+body {
     height: 100%;
 }
 
@@ -37,11 +39,19 @@ a:hover {
     margin-right: auto;
     margin-left: auto;
 }
-@media (min-width: 1200px){
-.custom-container {
-    width: 1170px;
+
+@media (min-width: 992px) {
+    .custom-container {
+        max-width: 960px;
+    }
 }
+
+@media (min-width: 1200px) {
+    .custom-container {
+        max-width: 1170px;
+    }
 }
+
 img {
     max-width: 100%;
 }
@@ -86,8 +96,9 @@ img {
     height: 1px;
     left: 0;
     bottom: 0;
-   opacity: 0;
+    opacity: 0;
 }
+
 .common-padding h2 span {
     display: inline-block;
     /* padding-bottom: 5px; */
@@ -155,15 +166,21 @@ h4.small-head {
     margin-right: 10px;
 }
 
-button.slick-arrow.slick-prev, button.slick-arrow.slick-prev:hover, button.slick-arrow.slick-prev:focus {
+button.slick-arrow.slick-prev,
+button.slick-arrow.slick-prev:hover,
+button.slick-arrow.slick-prev:focus {
     background-image: url(assets/img/left-arrow.svg);
 }
 
-button.slick-arrow.slick-next, button.slick-arrow.slick-next:hover, button.slick-arrow.slick-next:focus {
+button.slick-arrow.slick-next,
+button.slick-arrow.slick-next:hover,
+button.slick-arrow.slick-next:focus {
     background-image: url(assets/img/right-arrow.svg);
 }
 
-button.slick-arrow, button.slick-arrow:hover, button.slick-arrow:focus {
+button.slick-arrow,
+button.slick-arrow:hover,
+button.slick-arrow:focus {
     background-color: #003a70;
     border-radius: 50%;
     background-repeat: no-repeat;
@@ -206,7 +223,12 @@ button.slick-arrow:hover {
     border-radius: 12px;
 }
 
-.modal-header h4 {margin: 0;color: #003a70;font-weight: 600;font-size: 18px;}
+.modal-header h4 {
+    margin: 0;
+    color: #003a70;
+    font-weight: 600;
+    font-size: 18px;
+}
 
 .modal-dialog .modal-header {
     padding-bottom: 10px;
@@ -217,6 +239,7 @@ button.slick-arrow:hover {
     border: 0;
     padding-top: 0;
 }
+
 .custom-table {
     border: 1px solid #d7d3d3;
     border-radius: 10px;
@@ -228,13 +251,16 @@ button.slick-arrow:hover {
     border-bottom: 1px solid #d7d3d3;
 }
 
-.custom-table table {width: 100%;}
+.custom-table table {
+    width: 100%;
+}
 
 
 /* dialog style ends */
 
 /* form field design start */
-.custom-form mat-form-field .mat-form-field-flex:focus, .custom-form mat-form-field .mat-form-field-flex:hover {
+.custom-form mat-form-field .mat-form-field-flex:focus,
+.custom-form mat-form-field .mat-form-field-flex:hover {
     outline: 0 !important;
 }
 
@@ -242,19 +268,112 @@ button.slick-arrow:hover {
     opacity: 0.1 !important;
 }
 
-.custom-form .mat-form-field-appearance-outline .mat-form-field-infix {border-top: 0;padding: 16px 0 5px 0;}
+.custom-form .mat-form-field-appearance-outline .mat-form-field-infix {
+    border-top: 0;
+    padding: 16px 0 5px 0;
+}
 
 .custom-form .mat-form-field-appearance-outline .mat-form-field-outline {
     height: 40px;
 }
+
 .custom-form .mat-form-field-appearance-outline .mat-form-field-subscript-wrapper {
     margin-top: 10px;
 }
+
 .custom-form .comment .mat-form-field-appearance-outline .mat-form-field-subscript-wrapper {
     margin-top: 22px;
 }
-.full-field.comment .mat-form-field-wrapper {height: 100px;}
+
+.full-field.comment .mat-form-field-wrapper {
+    height: 100px;
+}
+
 .custom-form .comment .mat-form-field-appearance-outline .mat-form-field-outline {
     height: 100px;
 }
+
 /* form field ends */
+.main-slider .carousel-control-next-icon, .main-slider .carousel-control-prev-icon {
+    background-size: 16px !important;
+}
+
+.main-slider .carousel-indicators button {
+    width: 10px !important;
+    height: 1px !important;
+}
+.main-slider .carousel-indicators {
+    margin-bottom: 0;
+}
+
+
+/* responsive start */
+@media (max-width: 1199.98px) {
+    .slick-slider {
+        padding: 0 30px;
+    }
+
+    .slick-slider .slick-prev {
+        left: 0;
+    }
+
+    .slick-slider .slick-next {
+        right: 0;
+    }
+
+    .common-padding h2 {
+        font-size: 32px;
+    }
+    button.slick-arrow, button.slick-arrow:hover, button.slick-arrow:focus {
+        background-size: 12px;
+    }
+
+}
+
+@media (max-width: 991.98px) {
+    .common-padding h2 {
+        font-size: 26px;
+    }
+
+    .common-padding {
+        padding: 40px 0;
+    }
+
+    .left-img-wrap {
+        padding: 0;
+    }
+
+    h4.small-head {
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .common-padding h2 {
+        font-size: 24px;
+    }
+    .col-4 {
+        width: 100% !important;
+    }
+    .col-7, .col-5 {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    footer .col-4,
+    footer .col-6 {
+        margin-bottom: 20px;
+    }
+
+    .col-2 {
+        width: 100% !important;
+    }
+
+    .col-6 {
+        width: 100% !important;
+    }
+}
