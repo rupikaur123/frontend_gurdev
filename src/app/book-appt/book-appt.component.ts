@@ -63,7 +63,7 @@ export class BookApptComponent implements OnInit {
       date: ['', [Validators.required,]],
       email: ['', [Validators.email, Validators.required,]],
       address: ['', [Validators.maxLength(100)]],
-      services: [this.treatment, [Validators.required]],
+      services: [this.service_id == undefined ? this.treatment : this.service_id, [Validators.required]],
       phoneNumber: [this.phone, [
         Validators.required,
         Validators.pattern(MOBILE_PATTERN),

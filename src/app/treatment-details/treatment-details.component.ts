@@ -13,6 +13,7 @@ export class TreatmentDetailsComponent implements OnInit {
   content: any;
   serviceId: any;
   res: any;
+  treatment_name:any
   treatment_details: any
   baseUrl: any = 'http://api.gurdevhospital.co/';
   constructor(private route: Router, private router: ActivatedRoute, public http: HttpClient) {
@@ -25,10 +26,12 @@ export class TreatmentDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getServiceDetail()
+    this.getServiceList()
+ 
+
   }
-  getServiceDetail() {
-    this.http.get<any>(this.baseUrl + 'api/get_services/' + this.serviceId).subscribe({
+  getServiceDetail(id:any) {
+    this.http.get<any>(this.baseUrl + 'api/get_services/' + id).subscribe({
       next: (data: any) => {
         console.log('Get completed sucessfully. The response received ' + data);
         this.res = data.data;
@@ -38,10 +41,27 @@ export class TreatmentDetailsComponent implements OnInit {
       error: (err: any) => {
         console.log('failed with the errors', err.error);
         if (err.error) {
-          // this.toster.error(err.error.message);
         } else {
-          // this.toster.error('Something went wrong');
-        }
+       }
+      },
+      complete: () => { },
+    });
+  }
+  getServiceList() {
+    this.http.get<any>(this.baseUrl + 'api/get_services').subscribe({
+      next: (data: any) => {
+        console.log('Get completed sucessfully. The response received ' + data);
+        this.res = data.data;
+        this.treatment_name = this.res;
+        console.log('treatment_name', this.treatment_name);
+        let service= this.treatment_name.filter((X:any)=>{
+          return X.name == this.serviceId
+        })
+        console.log('serviceId',service[0].id)
+        this.getServiceDetail(service[0].id)
+      },
+      error: (err: any) => {
+        console.log('failed with the errors', err.error);
       },
       complete: () => { },
     });
