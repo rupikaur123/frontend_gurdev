@@ -25,7 +25,7 @@
         <img [src]="images[4]" alt="Random third slide" />
       </div>
     </ng-template>
-    <ng-template ngbSlide>
+    <!-- <ng-template ngbSlide>
       <div class="wrapper">
         <img [src]="images[5]" alt="Random third slide" />
       </div>
@@ -34,7 +34,7 @@
       <div class="wrapper">
         <img [src]="images[6]" alt="Random third slide" />
       </div>
-    </ng-template>
+    </ng-template> -->
   </ngb-carousel>
 </div>
 
@@ -238,7 +238,8 @@
           <img src="../../assets/img/b12.jpg" alt="">
         </div>
         <div class="text-wrap">
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text</p>
           <h4>Patient Name</h4>
           <span>Patient</span>
         </div>
@@ -248,7 +249,9 @@
           <img src="../../assets/img/appointment-bg.jpg" alt="">
         </div>
         <div class="text-wrap">
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text</p>
           <h4>Patient Name</h4>
           <span>Patient</span>
         </div>
@@ -258,7 +261,8 @@
           <img src="../../assets/img/doctor-icon.webp" alt="">
         </div>
         <div class="text-wrap">
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text</p>
           <h4>Patient Name</h4>
           <span>Patient</span>
         </div>
@@ -268,7 +272,8 @@
           <img src="../../assets/img/b12.jpg" alt="">
         </div>
         <div class="text-wrap">
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text</p>
           <h4>Patient Name</h4>
           <span>Patient</span>
         </div>
@@ -278,7 +283,9 @@
           <img src="../../assets/img/b12.jpg" alt="">
         </div>
         <div class="text-wrap">
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          </p>
           <h4>Patient Name</h4>
           <span>Patient</span>
         </div>
@@ -295,58 +302,21 @@
     <h2><span>Latest News </span></h2>
 
     <div class="latest-news">
-      <div class="inner-wrap">
+      <div class="inner-wrap" *ngFor="let item of news_name">
         <div class="img-wrap">
-          <img src="../../assets/img/news.png" alt="">
+          <!-- <img src="../../assets/img/news.png" alt=""> -->
+          <img [src]="baseUrl+item.image" />
         </div>
         <div class="text-wrap">
-          <h2 (click)="navigate()">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+          <h2 (click)="redirect(item)">{{item.title}}</h2>
           <p class="post-meta">
-            <a class="post-time" href=""><span class="entry-date">July 5, 2022</span></a> by <a class="" href="">Gurdev
+            <a class="post-time" href=""><span class="entry-date">{{item.date}}</span></a> by <a class="" href="">Gurdev
               Superspeciality Hospital</a>
           </p>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book.</p>
-          <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect()">More Detail</a>
+          <p>{{item.content}}</p>
+          <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect(item)">More Detail</a>
         </div>
       </div>
-
-      <div class="inner-wrap">
-        <div class="img-wrap">
-          <img src="../../assets/img/news.png" alt="">
-        </div>
-        <div class="text-wrap">
-          <h2 (click)="navigate()">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
-          <p class="post-meta">
-            <a class="post-time" href=""><span class="entry-date">July 5, 2022</span></a> by <a class="" href="">Gurdev
-              Superspeciality Hospital</a>
-          </p>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book.</p>
-          <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect()">More Detail</a>
-        </div>
-      </div>
-
-      <div class="inner-wrap">
-        <div class="img-wrap">
-          <img src="../../assets/img/news.png" alt="">
-        </div>
-        <div class="text-wrap">
-          <h2 (click)="navigate()">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
-          <p class="post-meta">
-            <a class="post-time" href=""><span class="entry-date">July 5, 2022</span></a> by <a class="" href="">Gurdev
-              Superspeciality Hospital</a>
-          </p>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book.</p>
-          <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect()">More Detail</a>
-        </div>
-      </div>
-
-
     </div>
 
     <button class="custom-btn" title="Read More"><i class="fa fa-arrow-right" aria-hidden="true"></i>Read

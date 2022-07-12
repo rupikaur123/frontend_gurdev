@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'treatment/details/:id', component: TreatmentDetailsComponent },
   { path: 'book/appt/:id', component: BookApptComponent },
   { path: 'latest-news', component: LatestNewsComponent },
-  { path: 'news/details', component: NewsDetailComponent },
+  { path: 'news/details/:id', component: NewsDetailComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'privacy', component: PrivacyPolicyComponent },
   { path: 't-c', component: TermsComponent }

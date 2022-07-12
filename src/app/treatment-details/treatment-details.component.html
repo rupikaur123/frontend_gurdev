@@ -1,8 +1,8 @@
 
 <div class="full-page">
-    <!-- <div class="banner-section" style="background-image: url(../../assets/img/b2.jpeg);"> -->
-        <img class="banner-section" [src]="baseUrl+treatment_details.banner_image" />
-    <!-- </div> -->
+    <div class="banner-section" [style.background-image]='"url(\"" + baseUrl+treatment_details.banner_image + "\")"'>
+        <!-- <img class="banner-section" [src]="baseUrl+treatment_details.banner_image" /> -->
+    </div>
 </div>
 <div class="custom-container">
     <div class="common-padding text-center">

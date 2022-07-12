@@ -1,7 +1,6 @@
 <div class="full-page">
-    <!-- <div class="banner-section" style="background-image: url(../../assets/img/b9.png);"> -->
-        <img [src]="baseUrl+staticList.image" class="banner-section" />
-    <!-- </div> -->
+    <div class="banner-section"[style.background-image]='"url(\"" + baseUrl+staticList.image + "\")"'>
+    </div>
 </div>
 <div class="custom-container">
     <div class="common-padding text-center">

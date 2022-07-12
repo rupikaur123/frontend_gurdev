@@ -18,9 +18,9 @@ export class LatestNewsComponent implements OnInit {
     localStorage.setItem('page', '')
     this.getServiceList();
   }
-  navigate() {
+  navigate(data:any) {
     console.log('&&')
-    this.route.navigate(['/news/details']);
+    this.route.navigate(['/news/details/'+data.id]);
   }
   getServiceList() {
     this.http.get<any>(this.baseUrl + 'api/get_latest_news').subscribe({
