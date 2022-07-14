@@ -87,7 +87,7 @@
     <div slickContainer #slickController="slick" [slickConfig]="configSpecialities">
       <ng-container *ngIf="slickController.initialize">
         <div class="img-wrap" slickItem *ngFor="let item of treatment_name">
-          <img [src]="baseUrl + item.image" />
+          <img [src]="item.image" />
           <h4>{{item.name}}</h4>
         </div>
       </ng-container>
@@ -220,7 +220,7 @@
     <div slickContainer #slickController="slick" [slickConfig]="configHospitalTour">
       <ng-container *ngIf="slickController.initialize">
         <div class="img-wrap" slickItem *ngFor="let item of galleryList">
-          <img [src]="baseUrl+item.image_path+item.image" />
+          <img [src]="item.image" />
         </div>
       </ng-container>
     </div>
@@ -305,7 +305,7 @@
       <div class="inner-wrap" *ngFor="let item of news_name">
         <div class="img-wrap">
           <!-- <img src="../../assets/img/news.png" alt=""> -->
-          <img [src]="baseUrl+item.image" />
+          <img [src]="item.image" />
         </div>
         <div class="text-wrap">
           <h2 (click)="redirect(item)">{{item.title}}</h2>
