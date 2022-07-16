@@ -18,6 +18,8 @@
 <body class="mat-typography">
   <app-root></app-root>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 <script>
   function navToggle() {
     var x = document.getElementById("topNavbar");
@@ -30,6 +32,7 @@
 
   // menu hide onclick
   jQuery("#topNavbar a").click(function () {
+    console.log('**')
     jQuery("#topNavbar").css("display", "none");
   });
 </script>
