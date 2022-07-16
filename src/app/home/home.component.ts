@@ -104,31 +104,31 @@ export class HomeComponent implements OnInit {
   ];
 
   reviews_details: any
-  galleryList:any=[]
+  galleryList: any = []
   baseUrl: any = 'http://api.gurdevhospital.co/';
   ourFacilities = [
     {
-      count:'80',
-      text:'Critical care beds',
+      count: '80',
+      text: 'Critical care beds',
     },
     {
-      count:'60',
-      text:'Single patient beds',
+      count: '60',
+      text: 'Single patient beds',
     },
     {
-      count:'300',
-      text:'beds',
+      count: '300',
+      text: 'beds',
     },
     {
-      count:'20',
-      text:'departments',
+      count: '20',
+      text: 'departments',
     }
   ]
-  res:any
-  news_name:any
-  treatment_name:any=[]
-  doctorList:any=[]
-  constructor(config: NgbCarouselConfig, private route: Router,public http: HttpClient) {
+  res: any
+  news_name: any
+  treatment_name: any = []
+  doctorList: any = []
+  constructor(config: NgbCarouselConfig, private route: Router, public http: HttpClient) {
     console.log('images', this.images);
     // customize default values of carousels used by this component tree
     config.interval = 2000;
@@ -160,7 +160,7 @@ export class HomeComponent implements OnInit {
           // this.toster.error('Something went wrong');
         }
       },
-      complete: () => {},
+      complete: () => { },
     });
   }
   getServiceList() {
@@ -169,7 +169,7 @@ export class HomeComponent implements OnInit {
         console.log('Get completed sucessfully. The response received ' + data);
         this.res = data.data;
         this.treatment_name = this.res;
-         console.log('treatment_name', this.treatment_name);
+        console.log('treatment_name', this.treatment_name);
       },
       error: (err: any) => {
         console.log('failed with the errors', err.error);
@@ -179,7 +179,7 @@ export class HomeComponent implements OnInit {
           // this.toster.error('Something went wrong');
         }
       },
-      complete: () => {},
+      complete: () => { },
     });
   }
   getDoctorList() {
@@ -188,7 +188,7 @@ export class HomeComponent implements OnInit {
         console.log('Get completed sucessfully. The response received ' + data);
         this.res = data.data;
         this.doctorList = this.res;
-         console.log('doctorList', this.doctorList);
+        console.log('doctorList', this.doctorList);
       },
       error: (err: any) => {
         console.log('failed with the errors', err.error);
@@ -196,7 +196,7 @@ export class HomeComponent implements OnInit {
         } else {
         }
       },
-      complete: () => {},
+      complete: () => { },
     });
   }
   getGalleryList() {
@@ -215,10 +215,10 @@ export class HomeComponent implements OnInit {
           // this.toster.error('Something went wrong');
         }
       },
-      complete: () => {},
+      complete: () => { },
     });
   }
-  getReviewList(){
+  getReviewList() {
     this.http.get<any>(this.baseUrl + 'api/reviews_front').subscribe({
       next: (data: any) => {
         console.log('Get completed sucessfully. The response received ' + data);
@@ -240,8 +240,11 @@ export class HomeComponent implements OnInit {
   navigate() {
     this.route.navigate(['/treatment']);
   }
-  redirect(data:any){
-    this.route.navigate(['/news/details/'+data.id]);
+  redirect(data: any) {
+    this.route.navigate(['/news/details/' + data.id]);
+  }
+  move() {
+    this.route.navigate(['/latest-news']);
   }
   // slick config
 
@@ -273,8 +276,8 @@ export class HomeComponent implements OnInit {
     slidesToScroll: 1,
     dots: false,
     autoplay: true,
-    arrows:true,
-    autoplaySpeed: 3000 ,
+    arrows: true,
+    autoplaySpeed: 3000,
     responsive: [
       {
         breakpoint: 991,
@@ -297,8 +300,8 @@ export class HomeComponent implements OnInit {
     slidesToScroll: 1,
     dots: false,
     autoplay: true,
-    arrows:true,
-    autoplaySpeed: 3000 ,
+    arrows: true,
+    autoplaySpeed: 3000,
     responsive: [
       {
         breakpoint: 991,
@@ -321,8 +324,8 @@ export class HomeComponent implements OnInit {
     slidesToScroll: 1,
     dots: false,
     autoplay: true,
-    arrows:true,
-    autoplaySpeed: 3000 ,
+    arrows: true,
+    autoplaySpeed: 3000,
     responsive: [
       {
         breakpoint: 991,
@@ -345,8 +348,8 @@ export class HomeComponent implements OnInit {
     slidesToScroll: 1,
     dots: false,
     autoplay: true,
-    arrows:true,
-    autoplaySpeed: 3000 ,
+    arrows: true,
+    autoplaySpeed: 3000,
     responsive: [
       {
         breakpoint: 991,
