@@ -49,15 +49,15 @@
         </div>
       </div>
       <div class="col-6">
-        <h2 style="text-align: left;"><span>The Best Multspecialty Hospital in Nurpur Bedi, Ropar</span></h2>
+        <h2 style="text-align: left;"><span>The Best Multi-Specialty Hospital in District Rupnagar</span></h2>
         <h4 class="small-head">Personalised and affordable care near you</h4>
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-          standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-          make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-          sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-          PageMaker including versions of Lorem Ipsum.
+          With the effective use of advanced technology and high-quality equipment, we aim at providing top-notch
+          treatment facilities to all our patients. With the effective use of advanced technology and high-quality
+          equipment, we aim at providing top-notch treatment facilities to all our patients. We have 11 beds in the
+          Intensive Care Unit (ICU) along with an ICU on wheels to meet the emergency needs of the patients. Other
+          facilities are sonography, CT scan, dialysis center, blood storage, 3 modular operation theatres, and
+          round-the-clock pathological laboratory & pharmacy.
         </p>
         <button class="custom-btn" title="Read More"><i class="fa fa-arrow-right" aria-hidden="true"></i>Read
           More</button>
@@ -187,67 +187,23 @@
   </div>
 </div>
 
-
+<!-- <p *ngFor="let item of reviews_details">
+          <img [src]="baseUrl + item.image" />
+          <span> {{ item.review }} </span>
+        </p> -->
 <div class="review-section common-padding">
   <div class="custom-container">
     <h2><span> What Our Patients Say </span></h2>
 
     <div class="review-slider" slickContainer #slickController="slick" [slickConfig]="configReview">
-      <div class="white-box" slickItem>
+      <div class="white-box" slickItem *ngFor="let item of reviews_details">
         <div class="img-wrap">
-          <img src="../../assets/img/b12.jpg" alt="">
+          <img [src]="item.image" />
         </div>
         <div class="text-wrap">
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text</p>
-          <h4>Patient Name</h4>
-          <span>Patient</span>
-        </div>
-      </div>
-      <div class="white-box" slickItem>
-        <div class="img-wrap">
-          <img src="../../assets/img/appointment-bg.jpg" alt="">
-        </div>
-        <div class="text-wrap">
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy text</p>
-          <h4>Patient Name</h4>
-          <span>Patient</span>
-        </div>
-      </div>
-      <div class="white-box" slickItem>
-        <div class="img-wrap">
-          <img src="../../assets/img/doctor-icon.webp" alt="">
-        </div>
-        <div class="text-wrap">
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text</p>
-          <h4>Patient Name</h4>
-          <span>Patient</span>
-        </div>
-      </div>
-      <div class="white-box" slickItem>
-        <div class="img-wrap">
-          <img src="../../assets/img/b12.jpg" alt="">
-        </div>
-        <div class="text-wrap">
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text</p>
-          <h4>Patient Name</h4>
-          <span>Patient</span>
-        </div>
-      </div>
-      <div class="white-box" slickItem>
-        <div class="img-wrap">
-          <img src="../../assets/img/b12.jpg" alt="">
-        </div>
-        <div class="text-wrap">
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          </p>
-          <h4>Patient Name</h4>
-          <span>Patient</span>
+          <p> {{ item.review }}</p>
+          <!-- <h4>Patient Name</h4>
+          <span>Patient</span> -->
         </div>
       </div>
     </div>
@@ -262,28 +218,53 @@
     <h2><span>Latest News </span></h2>
 
     <div class="latest-news">
-      <div class="inner-wrap" *ngFor="let item of news_name">
+      <div class="inner-wrap">
         <div class="img-wrap">
-          <img [src]="item.image" />
+          <img [src]="news_name&&news_name[0].image" />
         </div>
         <div class="text-wrap">
-          <h2 (click)="redirect(item)">{{item.title}}</h2>
+          <h2 (click)="redirect(news_name&&news_name[0])">{{news_name&&news_name[0].title}}</h2>
           <p class="post-meta">
-            <a class="post-time" href=""><span class="entry-date">{{item.date}}</span></a> by <a class="" href="">Gurdev
+            <a class="post-time" href=""><span class="entry-date">{{news_name&&news_name[0].date}}</span></a> by <a class="" href="">Gurdev
               Superspeciality Hospital</a>
           </p>
-          <p>{{item.content}}</p>
-          <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect(item)">More Detail</a>
+          <p>{{news_name&&news_name[0].content}}</p>
+          <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect(news_name&&news_name[0])">More Detail</a>
+        </div>
+      </div>
+      <div class="inner-wrap">
+        <div class="img-wrap">
+          <img [src]="news_name&&news_name[1].image" />
+        </div>
+        <div class="text-wrap">
+          <h2 (click)="redirect(news_name&&news_name[1])">{{news_name&&news_name[1].title}}</h2>
+          <p class="post-meta">
+            <a class="post-time" href=""><span class="entry-date">{{news_name&&news_name[1].date}}</span></a> by <a class="" href="">Gurdev
+              Superspeciality Hospital</a>
+          </p>
+          <p>{{news_name&&news_name[1].content}}</p>
+          <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect(news_name&&news_name[1])">More Detail</a>
+        </div>
+      </div>
+      <div class="inner-wrap">
+        <div class="img-wrap">
+          <img [src]="news_name&&news_name[2].image" />
+        </div>
+        <div class="text-wrap">
+          <h2 (click)="redirect(news_name&&news_name[2])">{{news_name&&news_name[2].title}}</h2>
+          <p class="post-meta">
+            <a class="post-time" href=""><span class="entry-date">{{news_name&&news_name[2].date}}</span></a> by <a class="" href="">Gurdev
+              Superspeciality Hospital</a>
+          </p>
+          <p>{{news_name&&news_name[2].content}}</p>
+          <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect(news_name&&news_name[2])">More Detail</a>
         </div>
       </div>
     </div>
 
-    <button class="custom-btn" title="Read More" (click)="move()"><i class="fa fa-arrow-right" aria-hidden="true"></i>Read
+    <button class="custom-btn" title="Read More" (click)="move()"><i class="fa fa-arrow-right"
+        aria-hidden="true"></i>Read
       More News</button>
-    <!-- <p *ngFor="let item of reviews_details">
-          <img [src]="baseUrl + item.image" />
-          <span> {{ item.review }} </span>
-        </p> -->
-
-  </div>
+</div>
+  
 </div>
