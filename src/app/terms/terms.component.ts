@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-terms',
   templateUrl: './terms.component.html',
-  styleUrls: ['./terms.component.css']
+  styleUrls: ['./terms.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class TermsComponent implements OnInit {
   staticList: any = []
