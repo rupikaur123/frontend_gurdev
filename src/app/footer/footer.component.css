@@ -90,8 +90,8 @@ footer ul li a.gap {
     margin: 0;
 }
 
-footer ul li a:hover {
-    color: #35b6b4;
+footer ul li:hover a, footer ul li a.active {
+    color: #35b6b4 !important;
     font-weight: 500;
 }
 footer p a {
@@ -118,7 +118,24 @@ footer p a:hover {
 .footer-bottom p a:hover {
     color: #003a70;
 }
+footer ul.flogo {
+    display: flex;
+    display: -ms-flexbox;
+    align-items: center;
+    margin-bottom: 40px !important;
+}
 
+ul.flogo li {
+    margin-right: 10px;
+}
+
+ul.flogo li img {
+    width: 65px;
+}
+
+ul.flogo li:hover img {
+    opacity: 0.6;
+}
 
 /* responsive */
 @media (max-width: 991.98px) {

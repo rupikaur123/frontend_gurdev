@@ -1,7 +1,7 @@
 .full-page {
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 100% 100%;
+  background-position: left center;
   position: relative;
   padding: 100px 0;
 }
@@ -62,9 +62,6 @@
 
 
 @media (max-width: 767.98px) {
-  .banner-section[_ngcontent-kiw-c105] {
-    height: 250px;
-  }
 
   .custom-form h2 {
     font-size: 24px;

@@ -1,11 +1,11 @@
 <div class="header-inner">
   <div class="navbar bg-blue" id="topNavbar">
     <div class="custom-container">
-      <a routerLink="/" onclick="navToggle()">Home</a>
-      <a routerLink="/about" onclick="navToggle()">About Us</a>
-      <a routerLink="/book/appt" onclick="navToggle()">Book an Appointment</a>
-      <a routerLink="/treatment" onclick="navToggle()">Treatments</a>
-      <a routerLink="/contact" onclick="navToggle()">Contact Us</a>
+      <a routerLink="/" routerLinkActive="active" onclick="navToggle()">Home</a>
+      <a routerLink="/about" routerLinkActive="active" onclick="navToggle()">About Us</a>
+      <a routerLink="/book/appt" routerLinkActive="active" onclick="navToggle()">Book an Appointment</a>
+      <a routerLink="/treatment" routerLinkActive="active" onclick="navToggle()">Treatments</a>
+      <a routerLink="/contact" routerLinkActive="active" onclick="navToggle()">Contact Us</a>
       <div class="right-content">
         <a href="tel:+91-6239565525" title="+91-6239565525" class="custom-btn" onclick="navToggle()">Enquiry +91-6239565525</a>
         <button class="custom-btn" (click)="open(emergencyModal)">Emergency Number</button>
@@ -16,9 +16,15 @@
 
   <div class="custom-container">
     <div class="logo-btn-bar">
-      <a href="#" class="logo-wrap">
-        <img src=" ../../assets/img/logo_gurdev_hospital-1.jpg" class="doc-img" />
-      </a>
+      <div class="left-logo">
+        <a href="#" class="logo-wrap" style="margin-right: 20px;">
+          <img src=" ../../assets/img/logo_gurdev_hospital-1.jpg" class="doc-img" alt="Gurdev Hospital" title="Gurdev Hospital" />
+        </a>
+        <a href="#" class="logo-wrap">
+          <img src=" ../../assets/img/nabh.png" class="doc-img" width="55" alt="NABH" title="NABH" />
+        </a>
+      </div>
+
       <div class="right-content">
         <a href="tel:+91-6239565525" title="+91-6239565525" class="custom-btn">Enquiry +91-6239565525</a>
         <button class="custom-btn" (click)="open(emergencyModal)">Emergency Number</button>

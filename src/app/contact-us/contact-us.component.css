@@ -1,16 +1,16 @@
 .banner-section {
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: unset;
     height: 400px;
     width: 100%;
-  }
-  
-  .content-wrap {
-    line-height: 1.6;
-  }
+}
 
-  .contact-top {
+.content-wrap {
+    line-height: 1.6;
+}
+
+.contact-top {
     background-color: white;
     padding: 20px 20px 10px;
     width: 100%;
@@ -27,9 +27,11 @@
 .contact-top mat-card-actions {
     padding-left: 10px;
 }
+
 .map-add-wrap {
     margin: 60px 0;
 }
+
 .address-wrap {
     background-color: #ecf5f5;
     padding: 15px 20px;
@@ -59,46 +61,58 @@
 .address-wrap p:hover i {
     color: #35b6b4;
 }
+
 .map-wrap iframe {
     width: 100%;
 }
+
 .contact-top .custom-btn {
     margin: 0 5px;
 }
 
 /* responsive */
 @media (max-width: 1199.98px) {
-.map-add-wrap {
-    margin: 40px 0;
+    .map-add-wrap {
+        margin: 40px 0;
+    }
+
+    .map-add-wrap h4 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
 }
 
-.map-add-wrap h4 {
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-}
 @media (max-width: 991.98px) {
     .banner-section {
-      height: 300px;
+        height: 300px;
     }
+
     .map-add-wrap h4 {
         font-size: 18px;
     }
-  }
-  
-  @media (max-width: 767.98px) {
+    .contact-top .custom-btn {
+        font-size: 13px;
+        padding: 10px;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 767.98px) {
     .banner-section {
-      height: 200px;
-    } 
+        height: 170px;
+    }
+
     .map-wrap {
         margin-bottom: 20px;
     }
-    
+
     .contact-top mat-form-field {
         width: 50%;
     }
-    
+
     .contact-top {
         padding: 20px 10px 7px;
     }
-  }
+
+   
+}

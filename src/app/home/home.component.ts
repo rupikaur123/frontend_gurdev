@@ -214,7 +214,7 @@ export class HomeComponent implements OnInit {
 
   configTeam: Slick.Config = {
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     dots: false,
     autoplay: true,

@@ -1,7 +1,7 @@
 .banner-section {
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: unset;
   height: 400px;
   width: 100%;
 }
@@ -39,6 +39,9 @@ ul.services-tiles .inner-tile {
   border-radius: 8px;
   cursor: pointer;
 }
+ul.services-tiles li:hover .inner-tile {
+  opacity: 0.6;
+}
 
 
 /* responsive */
@@ -58,6 +61,6 @@ ul.services-tiles .inner-tile {
   }
 
   .banner-section {
-    height: 200px;
+    height: 170px;
   }
 }

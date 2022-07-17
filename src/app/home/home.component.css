@@ -72,8 +72,33 @@ ngb-carousel .wrapper::after {
   border-color: white;
 }
 
-.our-facility .text-inner {
+.card-row {
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card-row .cards {
+  width: 25%;
+  padding: 0 20px;
+  margin-bottom: 40px;
+}
+
+.card-row .text-inner {
   text-align: center;
+  /* background: #35b6b4; */
+  width: 100%;
+  height: 100%;
+  padding: 40px 0;
+  border-radius: 20PX;
+  box-shadow: 0 0 4px rgb(0 0 0 / 50%);
+}
+
+.card-row .text-inner:hover {
+  box-shadow: 0 0 4px rgb(0 0 0 / 80%);
+  /* background: #6fcfcd; */
+  opacity: 0.8;
 }
 
 .our-facility .text-inner h1 {
@@ -158,6 +183,12 @@ ngb-carousel .wrapper::after {
   text-align: center;
 }
 
+.our-team .img-wrap {
+  height: 250px;
+  overflow: hidden;
+  width: 100%;
+}
+
 .our-team .text-wrap h4 {
   color: #003a70;
   font-size: 20px;
@@ -179,7 +210,6 @@ ngb-carousel .wrapper::after {
 .latest-news {
   display: flex;
   display: -ms-flexbox;
-  align-items: center;
   margin: 40px 0;
   flex-wrap: wrap;
 }
@@ -189,9 +219,15 @@ ngb-carousel .wrapper::after {
   width: 33.333%;
 }
 
+.latest-news .img-wrap {
+  margin-bottom: 20px;
+  height: 200px;
+  overflow: hidden;
+  width: 100%;
+}
+
 .latest-news .inner-wrap img {
   width: 100%;
-  margin-bottom: 12px;
 }
 
 .latest-news .inner-wrap .text-wrap {
@@ -271,6 +307,11 @@ p.post-meta {
   ngb-carousel .wrapper {
     height: 450px;
   }
+
+  .card-row .cards {
+    padding: 0 10px;
+    margin-bottom: 20px;
+  }
 }
 
 @media (max-width: 991.98px) {
@@ -279,7 +320,7 @@ p.post-meta {
   }
 
   ngb-carousel .wrapper {
-    height: 350px;
+    height: auto;
   }
 
   .our-speciality .img-wrap h4 {
@@ -307,6 +348,9 @@ p.post-meta {
   .latest-news {
     margin-bottom: 0;
   }
+  .card-row .cards {
+    width: 33.333%;
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -323,7 +367,7 @@ p.post-meta {
   }
 
   .our-facility .text-inner p {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .latest-news .inner-wrap {
@@ -331,9 +375,8 @@ p.post-meta {
     margin-bottom: 25px;
     padding: 0;
   }
-
-  ngb-carousel .wrapper {
-    height: 200px;
+  .card-row .cards {
+    width: 50%;
   }
 
 }

@@ -21,7 +21,10 @@
   font-weight: 500;
   color: #35b6b4 !important;
 }
-
+.header-inner .navbar a.active {
+  font-weight: 500;
+  color: #35b6b4 !important;
+}
 .header-inner .navbar {
   height: auto;
   padding: 0;
