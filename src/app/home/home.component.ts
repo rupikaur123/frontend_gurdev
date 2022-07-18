@@ -173,6 +173,7 @@ export class HomeComponent implements OnInit {
     dots: false,
     autoplay: false,
     autoplaySpeed: 2000,
+    mouseWheelMove: false,
     responsive: [
       {
         breakpoint: 991,
@@ -196,6 +197,7 @@ export class HomeComponent implements OnInit {
     autoplay: true,
     arrows: true,
     autoplaySpeed: 3000,
+    mouseWheelMove: false,
     responsive: [
       {
         breakpoint: 991,
@@ -220,6 +222,7 @@ export class HomeComponent implements OnInit {
     autoplay: true,
     arrows: true,
     autoplaySpeed: 3000,
+    mouseWheelMove: false,
     responsive: [
       {
         breakpoint: 991,
@@ -244,6 +247,7 @@ export class HomeComponent implements OnInit {
     autoplay: true,
     arrows: true,
     autoplaySpeed: 3000,
+    mouseWheelMove: false,
     responsive: [
       {
         breakpoint: 991,
@@ -268,6 +272,7 @@ export class HomeComponent implements OnInit {
     autoplay: true,
     arrows: true,
     autoplaySpeed: 3000,
+    mouseWheelMove: false,
     responsive: [
       {
         breakpoint: 991,
