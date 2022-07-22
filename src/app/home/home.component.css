@@ -380,3 +380,8 @@ p.post-meta {
   }
 
 }
+
+.limeTextHeight{
+  height: 20px;
+  overflow: hidden;
+}

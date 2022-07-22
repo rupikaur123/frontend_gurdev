@@ -82,3 +82,8 @@
         padding: 0;
       }
   }
+
+  .limeTextHeight{
+    height: 20px;
+    overflow: hidden;
+  }
