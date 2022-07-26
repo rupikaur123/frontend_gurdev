@@ -1,8 +1,8 @@
 .banner-section {
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: unset;
-    height: 400px;
+    background-position: center;
+    height: 520px;
     width: 100%;
   }
   
@@ -66,9 +66,14 @@
 
 
   /* responsive */
+@media (max-width: 1198.98px) {
+    .banner-section {
+      height: 400px;
+    }
+}
 @media (max-width: 991.98px) {
     .banner-section {
-      height: 300px;
+      height: 340px;
     }
   }
   
