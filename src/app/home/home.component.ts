@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
     // '../../assets/img/b9.png',
     '../../assets/img/b2.jpeg',
     '../../assets/img/b1.jpg',
+    '../../assets/img/cardiology-banner.jpg'
   ];
   reviews_details: any
   galleryList: any = []

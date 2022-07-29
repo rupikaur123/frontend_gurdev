@@ -25,12 +25,12 @@
         <img [src]="images[4]" alt="Random third slide" />
       </div>
     </ng-template>
-    <!-- <ng-template ngbSlide>
+    <ng-template ngbSlide>
       <div class="wrapper">
-        <img [src]="images[5]" alt="Random third slide" />
+        <img [src]="images[7]" alt="Random third slide" />
       </div>
     </ng-template>
-    <ng-template ngbSlide>
+    <!-- <ng-template ngbSlide>
       <div class="wrapper">
         <img [src]="images[6]" alt="Random third slide" />
       </div>
@@ -223,7 +223,7 @@
         <div class="cards">
           <div class="text-inner">
             <h1>1</h1>
-            <p>Labs </p>
+            <p>Lab </p>
           </div>
         </div>
 
@@ -286,7 +286,7 @@
             <a class="post-time" href=""><span class="entry-date">{{news_name&&news_name[0].date}}</span></a> by <a class="" href="">Gurdev
               Superspeciality Hospital</a>
           </p>
-          <p class="limeTextHeight">{{news_name&&news_name[0].content}}</p>
+          <p class="limeTextHeight" [innerHTML]="news_name&&news_name[0].content"></p>
           <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect(news_name&&news_name[0])">More Detail</a>
         </div>
       </div>
@@ -300,7 +300,7 @@
             <a class="post-time" href=""><span class="entry-date">{{news_name&&news_name[1].date}}</span></a> by <a class="" href="">Gurdev
               Superspeciality Hospital</a>
           </p>
-          <p class="limeTextHeight">{{news_name&&news_name[1].content}}</p>
+          <p class="limeTextHeight" [innerHTML]="news_name&&news_name[1].content"></p>
           <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect(news_name&&news_name[1])">More Detail</a>
         </div>
       </div>
@@ -314,7 +314,7 @@
             <a class="post-time" href=""><span class="entry-date">{{news_name&&news_name[2].date}}</span></a> by <a class="" href="">Gurdev
               Superspeciality Hospital</a>
           </p>
-          <p class="limeTextHeight">{{news_name&&news_name[2].content}}</p>
+          <p class="limeTextHeight" [innerHTML]="news_name&&news_name[2].content"></p>
           <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect(news_name&&news_name[2])">More Detail</a>
       </div>
       </div>

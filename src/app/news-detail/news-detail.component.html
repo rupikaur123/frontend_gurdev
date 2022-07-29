@@ -14,9 +14,8 @@
             <div class="col-sm-6">
                 <div class="text-center">
                     <h2>{{news_details.title}}</h2>
-                    <p class="content-wrap">
-                        {{news_details.content}}
-                    </p>
+                    <p class="content-wrap" [innerHTML]="news_details.content">
+                        </p>
                 </div>
             </div>
             <div class="col-sm-6">
