@@ -320,6 +320,17 @@ button.slick-arrow:hover {
 
 
 /* responsive start */
+@media (min-width: 1599.98px) {
+    .banner-section {
+        height: 640px !important;
+    }
+}
+@media (min-width: 1899.98px) {
+    .banner-section {
+        height: 750px !important;
+    }
+}
+
 @media (max-width: 1199.98px) {
     .slick-slider {
         padding: 0 30px;

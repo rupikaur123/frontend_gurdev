@@ -9,18 +9,20 @@
     </p>
     <div class="latest-news">
       <div class="inner-wrap" *ngFor="let item of news_name">
-        <div class="img-wrap">
-          <!-- <img src="../../assets/img/news.png" alt=""> -->
-          <img [src]="item.image" />
-        </div>
-        <div class="text-wrap">
-          <h2 (click)="navigate(item)">{{item.title}}</h2>
-          <p class="post-meta">
-            <a class="post-time" href=""><span class="entry-date">{{item.date}}</span></a> by <a class="" href="">Gurdev
-              Superspeciality Hospital</a>
-          </p>
-          <p class="limeTextHeight" [innerHTML]="item.content"></p>
-          <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="navigate(item)">More Detail</a>
+        <div class="inner-box-wrap">
+          <div class="img-wrap">
+            <!-- <img src="../../assets/img/news.png" alt=""> -->
+            <img [src]="item.image" />
+          </div>
+          <div class="text-wrap">
+            <h2 (click)="navigate(item)">{{item.title}}</h2>
+            <p class="post-meta">
+              <a class="post-time" href=""><span class="entry-date">{{item.date}}</span></a> by <a class="" href="">Gurdev
+                Superspeciality Hospital</a>
+            </p>
+            <p class="limeTextHeight" [innerHTML]="item.content"></p>
+            <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="navigate(item)">More Detail</a>
+          </div>
         </div>
       </div>
     </div>

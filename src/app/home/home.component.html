@@ -277,46 +277,52 @@
 
     <div class="latest-news">
       <div class="inner-wrap">
-        <div class="img-wrap">
-          <img [src]="news_name&&news_name[0].image" />
-        </div>
-        <div class="text-wrap">
-          <h2 (click)="redirect(news_name&&news_name[0])">{{news_name&&news_name[0].title}}</h2>
-          <p class="post-meta">
-            <a class="post-time" href=""><span class="entry-date">{{news_name&&news_name[0].date}}</span></a> by <a class="" href="">Gurdev
-              Superspeciality Hospital</a>
-          </p>
-          <p class="limeTextHeight" [innerHTML]="news_name&&news_name[0].content"></p>
-          <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect(news_name&&news_name[0])">More Detail</a>
-        </div>
-      </div>
-      <div class="inner-wrap">
-        <div class="img-wrap">
-          <img [src]="news_name&&news_name[1].image" />
-        </div>
-        <div class="text-wrap">
-          <h2 (click)="redirect(news_name&&news_name[1])">{{news_name&&news_name[1].title}}</h2>
-          <p class="post-meta">
-            <a class="post-time" href=""><span class="entry-date">{{news_name&&news_name[1].date}}</span></a> by <a class="" href="">Gurdev
-              Superspeciality Hospital</a>
-          </p>
-          <p class="limeTextHeight" [innerHTML]="news_name&&news_name[1].content"></p>
-          <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect(news_name&&news_name[1])">More Detail</a>
+        <div class="inner-box-wrap">
+          <div class="img-wrap">
+            <img [src]="news_name&&news_name[0].image" />
+          </div>
+          <div class="text-wrap">
+            <h2 (click)="redirect(news_name&&news_name[0])">{{news_name&&news_name[0].title}}</h2>
+            <p class="post-meta">
+              <a class="post-time" href=""><span class="entry-date">{{news_name&&news_name[0].date}}</span></a> by <a class="" href="">Gurdev
+                Superspeciality Hospital</a>
+            </p>
+            <p class="limeTextHeight" [innerHTML]="news_name&&news_name[0].content"></p>
+            <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect(news_name&&news_name[0])">More Detail</a>
+          </div>
         </div>
       </div>
       <div class="inner-wrap">
-        <div class="img-wrap">
-          <img [src]="news_name&&news_name[2].image" />
+        <div class="inner-box-wrap">
+          <div class="img-wrap">
+            <img [src]="news_name&&news_name[1].image" />
+          </div>
+          <div class="text-wrap">
+            <h2 (click)="redirect(news_name&&news_name[1])">{{news_name&&news_name[1].title}}</h2>
+            <p class="post-meta">
+              <a class="post-time" href=""><span class="entry-date">{{news_name&&news_name[1].date}}</span></a> by <a class="" href="">Gurdev
+                Superspeciality Hospital</a>
+            </p>
+            <p class="limeTextHeight" [innerHTML]="news_name&&news_name[1].content"></p>
+            <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect(news_name&&news_name[1])">More Detail</a>
+          </div>
         </div>
-        <div class="text-wrap">
-          <h2 (click)="redirect(news_name&&news_name[2])">{{news_name&&news_name[2].title}}</h2>
-          <p class="post-meta">
-            <a class="post-time" href=""><span class="entry-date">{{news_name&&news_name[2].date}}</span></a> by <a class="" href="">Gurdev
-              Superspeciality Hospital</a>
-          </p>
-          <p class="limeTextHeight" [innerHTML]="news_name&&news_name[2].content"></p>
-          <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect(news_name&&news_name[2])">More Detail</a>
       </div>
+      <div class="inner-wrap">
+        <div class="inner-box-wrap">
+          <div class="img-wrap">
+            <img [src]="news_name&&news_name[2].image" />
+          </div>
+          <div class="text-wrap">
+            <h2 (click)="redirect(news_name&&news_name[2])">{{news_name&&news_name[2].title}}</h2>
+            <p class="post-meta">
+              <a class="post-time" href=""><span class="entry-date">{{news_name&&news_name[2].date}}</span></a> by <a class="" href="">Gurdev
+                Superspeciality Hospital</a>
+            </p>
+            <p class="limeTextHeight" [innerHTML]="news_name&&news_name[2].content"></p>
+            <a class="detail-link" href="javascript:void(0)" title="More Detail" (click)="redirect(news_name&&news_name[2])">More Detail</a>
+        </div>
+        </div>
       </div>
     </div>
 
