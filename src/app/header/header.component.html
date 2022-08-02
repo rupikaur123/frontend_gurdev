@@ -1,7 +1,8 @@
 <div class="header-inner">
   <div class="navbar bg-blue" id="topNavbar">
     <div class="custom-container">
-      <a routerLink="/" routerLinkActive="active" onclick="navToggle()">Home</a>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+        true}" onclick="navToggle()">Home</a>
       <a routerLink="/about" routerLinkActive="active" onclick="navToggle()">About Us</a>
       <a routerLink="/book/appt" routerLinkActive="active" onclick="navToggle()">Book an Appointment</a>
       <a routerLink="/treatment" routerLinkActive="active" onclick="navToggle()">Services</a>

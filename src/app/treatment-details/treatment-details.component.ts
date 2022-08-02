@@ -55,7 +55,7 @@ export class TreatmentDetailsComponent implements OnInit {
         this.treatment_name = this.res;
         console.log('treatment_name', this.treatment_name);
         let service= this.treatment_name.filter((X:any)=>{
-          return X.name == this.serviceId
+          return X.alies_name == this.serviceId
         })
         console.log('serviceId',service[0].id)
         this.getServiceDetail(service[0].id)

@@ -18,7 +18,7 @@ export class TreatmentComponent implements OnInit {
     this.getServiceList();
   }
   navigate(data: any) {
-    this.route.navigate(['/treatment/details/' + data.name]);
+    this.route.navigate(['/treatment/details/' + data.alies_name]);
   }
   getServiceList() {
     this.http.get<any>(this.baseUrl + 'api/get_services').subscribe({
