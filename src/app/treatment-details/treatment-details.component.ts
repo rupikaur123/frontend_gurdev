@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Meta, MetaDefinition } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-treatment-details',
@@ -16,7 +18,7 @@ export class TreatmentDetailsComponent implements OnInit {
   treatment_name:any
   treatment_details: any
   baseUrl: any = 'http://api.gurdevhospital.co/';
-  constructor(private route: Router, private router: ActivatedRoute, public http: HttpClient) {
+  constructor(private route: Router, private router: ActivatedRoute, public http: HttpClient,private metaService: Meta) {
     this.banner = '../../assets/img/img2.jpg';
     this.title = 'Arthroscopy – Sports Injury';
     this.content =
@@ -30,6 +32,13 @@ export class TreatmentDetailsComponent implements OnInit {
  
 
   }
+  addTag() {
+    this.metaService.addTags([
+      { name: 'description', content: this.treatment_details.meta_description },
+      { name: 'keywords', content: this.treatment_details.meta_keyword } ,
+      { name: 'title', content: this.treatment_details.meta_title } 
+    ]);
+  }
   getServiceDetail(id:any) {
     this.http.get<any>(this.baseUrl + 'api/get_services/' + id).subscribe({
       next: (data: any) => {
@@ -37,6 +46,7 @@ export class TreatmentDetailsComponent implements OnInit {
         this.res = data.data;
         this.treatment_details = this.res;
         console.log('treatment_name', this.treatment_details);
+        this.addTag()
       },
       error: (err: any) => {
         console.log('failed with the errors', err.error);

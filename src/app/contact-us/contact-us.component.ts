@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Meta, MetaDefinition } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-contact-us',
@@ -17,7 +18,7 @@ export class ContactUsComponent implements OnInit {
   res: any;
   treatment_name: any = []
   baseUrl: any = 'http://api.gurdevhospital.co/';
-  constructor(private route: ActivatedRoute, private router: Router, public http: HttpClient) { }
+  constructor(private route: ActivatedRoute, private router: Router, public http: HttpClient, private metaService:Meta) { }
   ngOnInit(): void {
     let MOBILE_PATTERN = /[0-9\+\-\ ]/;
     this.getServiceList();
@@ -34,6 +35,13 @@ export class ContactUsComponent implements OnInit {
       ]),
       services: new FormControl('', [Validators.required]),
     });
+  }
+  addTag() {
+    this.metaService.addTags([
+      { name: 'description', content: this.staticList.meta_description },
+      { name: 'keywords', content: this.staticList.meta_keyword } ,
+      { name: 'title', content: this.staticList.meta_title } 
+    ]);
   }
   getServiceList() {
     this.http.get<any>(this.baseUrl + 'api/get_services').subscribe({
@@ -66,6 +74,7 @@ export class ContactUsComponent implements OnInit {
         this.res = data.data;
         this.staticList = this.res;
         console.log('staticList', this.staticList);
+        this.addTag()
       },
       error: (err: any) => {
         console.log('failed with the errors', err.error);
