@@ -7,9 +7,7 @@
 <div class="custom-container">
     <div class="common-padding text-center">
         <h2>{{ treatment_details.name }}</h2>
-        <p class="content-wrap">
-           {{ treatment_details.description }}
-          
+        <p class="content-wrap" [innerHTML]="treatment_details.description">
         </p>
         <button class="custom-btn" (click)="navigate()">Book an Appointment</button>
     </div>

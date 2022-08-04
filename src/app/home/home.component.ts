@@ -3,6 +3,7 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Slick } from 'ngx-slickjs';
+import { Meta, MetaDefinition } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -20,10 +21,10 @@ export class HomeComponent implements OnInit {
     // '../../assets/img/b9.png',
     '../../assets/img/b2.jpeg',
     '../../assets/img/b1.jpg',
-    '../../assets/img/cardiology-banner.jpg'
+    '../../assets/img/cardiology-banner.jpg',
   ];
-  reviews_details: any
-  galleryList: any = []
+  reviews_details: any;
+  galleryList: any = [];
   baseUrl: any = 'http://api.gurdevhospital.co/';
   ourFacilities = [
     {
@@ -41,13 +42,18 @@ export class HomeComponent implements OnInit {
     {
       count: '20',
       text: 'departments',
-    }
-  ]
-  res: any
-  news_name: any
-  treatment_name: any = []
-  doctorList: any = []
-  constructor(config: NgbCarouselConfig, private route: Router, public http: HttpClient) {
+    },
+  ];
+  res: any;
+  news_name: any;
+  treatment_name: any = [];
+  doctorList: any = [];
+  constructor(
+    config: NgbCarouselConfig,
+    private route: Router,
+    public http: HttpClient,
+    private metaService: Meta
+  ) {
     console.log('images', this.images);
     // customize default values of carousels used by this component tree
     config.interval = 2000;
@@ -56,12 +62,29 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    localStorage.setItem('page', '')
-    this.getReviewList()
-    this.getServiceList()
-    this.getGalleryList()
-    this.getDoctorList()
-    this.getLatestNewsList()
+    localStorage.setItem('page', '');
+    this.addTag();
+    this.getReviewList();
+    this.getServiceList();
+    this.getGalleryList();
+    this.getDoctorList();
+    this.getLatestNewsList();
+  }
+
+  addTag() {
+    this.metaService.addTags([
+      {
+        name: 'description',
+        content:
+          'Gurdev Hospital is the best super speciality hospital in Punjab providing various services in cardiology, plastic surgery, joint replacement, Pulmonology, orthopaedics and Oncology etc.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'Best super speciality hospital in punjab, Best super speciality hospital, Best super speciality hospital in ropar, Gurdev Hospital, Gurdev Super Speciality Hospital, Gurdev Hospital Nurpur Bedi, Gurdev Hospital Ropar',
+      },
+      { name: 'title', content: 'Best Super Specialty Hospital in Punjab' },
+    ]);
   }
   getLatestNewsList() {
     this.http.get<any>(this.baseUrl + 'api/get_latest_news').subscribe({
@@ -79,7 +102,7 @@ export class HomeComponent implements OnInit {
           // this.toster.error('Something went wrong');
         }
       },
-      complete: () => { },
+      complete: () => {},
     });
   }
   getServiceList() {
@@ -87,7 +110,10 @@ export class HomeComponent implements OnInit {
       next: (data: any) => {
         console.log('Get completed sucessfully. The response received ' + data);
         this.res = data.data;
-        this.treatment_name = this.res;
+        this.treatment_name = this.res.filter((x: any) => {
+          return x.image != '' || x.image != undefined;
+        });
+        // this.treatment_name = this.res;
         console.log('treatment_name', this.treatment_name);
       },
       error: (err: any) => {
@@ -98,7 +124,7 @@ export class HomeComponent implements OnInit {
           // this.toster.error('Something went wrong');
         }
       },
-      complete: () => { },
+      complete: () => {},
     });
   }
   getDoctorList() {
@@ -115,7 +141,7 @@ export class HomeComponent implements OnInit {
         } else {
         }
       },
-      complete: () => { },
+      complete: () => {},
     });
   }
   getGalleryList() {
@@ -134,7 +160,7 @@ export class HomeComponent implements OnInit {
           // this.toster.error('Something went wrong');
         }
       },
-      complete: () => { },
+      complete: () => {},
     });
   }
   getReviewList() {
@@ -153,7 +179,7 @@ export class HomeComponent implements OnInit {
           // this.toster.error('Something went wrong');
         }
       },
-      complete: () => { },
+      complete: () => {},
     });
   }
   navigate() {
@@ -179,17 +205,17 @@ export class HomeComponent implements OnInit {
       {
         breakpoint: 991,
         settings: {
-          slidesToShow: 3
-        }
+          slidesToShow: 3,
+        },
       },
       {
         breakpoint: 767,
         settings: {
-          slidesToShow: 2
-        }
-      }
-    ]
-  }
+          slidesToShow: 2,
+        },
+      },
+    ],
+  };
   configHospitalTour: Slick.Config = {
     infinite: true,
     slidesToShow: 4,
@@ -203,17 +229,17 @@ export class HomeComponent implements OnInit {
       {
         breakpoint: 991,
         settings: {
-          slidesToShow: 3
-        }
+          slidesToShow: 3,
+        },
       },
       {
         breakpoint: 767,
         settings: {
-          slidesToShow: 1
-        }
-      }
-    ]
-  }
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
 
   configTeam: Slick.Config = {
     infinite: true,
@@ -228,17 +254,17 @@ export class HomeComponent implements OnInit {
       {
         breakpoint: 991,
         settings: {
-          slidesToShow: 3
-        }
+          slidesToShow: 3,
+        },
       },
       {
         breakpoint: 767,
         settings: {
-          slidesToShow: 1
-        }
-      }
-    ]
-  }
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
 
   configSpecialities: Slick.Config = {
     infinite: true,
@@ -253,17 +279,17 @@ export class HomeComponent implements OnInit {
       {
         breakpoint: 991,
         settings: {
-          slidesToShow: 4
-        }
+          slidesToShow: 4,
+        },
       },
       {
         breakpoint: 767,
         settings: {
-          slidesToShow: 2
-        }
-      }
-    ]
-  }
+          slidesToShow: 2,
+        },
+      },
+    ],
+  };
 
   configReview: Slick.Config = {
     infinite: true,
@@ -278,16 +304,15 @@ export class HomeComponent implements OnInit {
       {
         breakpoint: 991,
         settings: {
-          slidesToShow: 2
-        }
+          slidesToShow: 2,
+        },
       },
       {
         breakpoint: 767,
         settings: {
-          slidesToShow: 1
-        }
-      }
-    ]
-  }
-
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
 }
