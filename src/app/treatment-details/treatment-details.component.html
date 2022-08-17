@@ -1,19 +1,18 @@
-
 <div class="full-page">
     <div class="banner-section" [style.background-image]='"url(\"" + treatment_details.banner_image + "\")"'>
         <!-- <img class="banner-section" [src]="baseUrl+treatment_details.banner_image" /> -->
     </div>
 </div>
 <div class="custom-container">
-    <div class="common-padding text-center">
+    <div class="common-padding text-center sdetail">
         <h2>{{ treatment_details.name }}</h2>
         <p class="content-wrap" [innerHTML]="treatment_details.description">
         </p>
 
-    <div class="our-team common-padding">
-        <div slickContainer #slickController="slick" [slickConfig]="configTeam">
-            <ng-container *ngIf="slickController.initialize">
-              <!-- <div class="inner-wrap" slickItem *ngFor="let item of doctorList">
+        <div class="our-team common-padding">
+            <div slickContainer #slickController="slick" [slickConfig]="configTeam">
+                <ng-container *ngIf="slickController.initialize">
+                    <!-- <div class="inner-wrap" slickItem *ngFor="let item of doctorList">
                 <div class="img-wrap">
                   <img [src]="item.image" />
                 </div>
@@ -23,68 +22,34 @@
                   <p>{{item.profession}}</p>
                 </div>
               </div> -->
-      
-              <div class="inner-wrap" slickItem>
-                <div class="img-wrap">
-                  <img src="../../assets/img/team.png" />
-                </div>
-                <div class="text-wrap">
-                  <h4>Shiwansh Sharma</h4>
-                  <p>M.D., IDCCM (Critical care)</p>
-                  <p> Obstetrician & Gynecologist</p>
-                </div>
-              </div> 
 
-              <div class="inner-wrap" slickItem>
-                <div class="img-wrap">
-                  <img src="../../assets/img/team.png" />
-                </div>
-                <div class="text-wrap">
-                  <h4>Shiwansh Sharma</h4>
-                  <p>M.D., IDCCM (Critical care)</p>
-                  <p> Obstetrician & Gynecologist</p>
-                </div>
-              </div> 
 
-              <div class="inner-wrap" slickItem>
-                <div class="img-wrap">
-                  <img src="../../assets/img/team.png" />
-                </div>
-                <div class="text-wrap">
-                  <h4>Shiwansh Sharma</h4>
-                  <p>M.D., IDCCM (Critical care)</p>
-                  <p> Obstetrician & Gynecologist</p>
-                </div>
-              </div> 
+                    <div class="inner-wrap" slickItem>
+                        <div class="img-wrap">
+                            <img src="../../assets/img/team.png" />
+                        </div>
+                        <div class="text-wrap">
+                            <h4>Shiwansh Sharma</h4>
+                            <p>M.D., IDCCM (Critical care)</p>
+                            <p> Obstetrician & Gynecologist</p>
+                        </div>
+                    </div>
 
-              <div class="inner-wrap" slickItem>
-                <div class="img-wrap">
-                  <img src="../../assets/img/team.png" />
-                </div>
-                <div class="text-wrap">
-                  <h4>Shiwansh Sharma</h4>
-                  <p>M.D., IDCCM (Critical care)</p>
-                  <p> Obstetrician & Gynecologist</p>
-                </div>
-              </div> 
+                    <div class="inner-wrap" slickItem>
+                        <div class="img-wrap">
+                            <img src="../../assets/img/team.png" />
+                        </div>
+                        <div class="text-wrap">
+                            <h4>Shiwansh Sharma</h4>
+                            <p>M.D., IDCCM (Critical care)</p>
+                            <p> Obstetrician & Gynecologist</p>
+                        </div>
+                    </div>
 
-              <div class="inner-wrap" slickItem>
-                <div class="img-wrap">
-                  <img src="../../assets/img/team.png" />
-                </div>
-                <div class="text-wrap">
-                  <h4>Shiwansh Sharma</h4>
-                  <p>M.D., IDCCM (Critical care)</p>
-                  <p> Obstetrician & Gynecologist</p>
-                </div>
-              </div> 
-
-            </ng-container>
-          </div>
-          </div>
+                </ng-container>
+            </div>
+        </div>
 
         <button class="custom-btn" (click)="navigate()">Book an Appointment</button>
     </div>
 </div>
-
-

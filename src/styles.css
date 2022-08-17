@@ -317,7 +317,9 @@ button.slick-arrow:hover {
     max-width: 50%;
 }
 
-
+.sdetail .our-team .slick-track {
+    margin: 0;
+}
 
 /* responsive start */
 @media (min-width: 1599.98px) {
