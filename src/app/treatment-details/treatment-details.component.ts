@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Meta, MetaDefinition } from '@angular/platform-browser';
-
+import { Slick } from 'ngx-slickjs';
 
 @Component({
   selector: 'app-treatment-details',
@@ -79,4 +79,30 @@ export class TreatmentDetailsComponent implements OnInit {
   navigate() {
     this.route.navigate(['/book/appt/' + this.serviceId]);
   }
+
+  configTeam: Slick.Config = {
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    dots: false,
+    autoplay: true,
+    arrows: true,
+    autoplaySpeed: 3000,
+    mouseWheelMove: false,
+    responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
+
 }

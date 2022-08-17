@@ -10,6 +10,45 @@ p.content-wrap {
   line-height: 1.6;
 }
 
+/* our-team section start */
+.our-team .inner-wrap {
+  padding: 0 10px;
+}
+
+.our-team .img-wrap img {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.our-team .text-wrap {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.our-team .img-wrap {
+  height: 250px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.our-team .text-wrap h4 {
+  color: #003a70;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.our-team .text-wrap p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.our-speciality.common-padding {
+  background: #eaf3fc;
+}
+
+
 /* responsive */
 @media (max-width: 1198.98px) {
   .banner-section {
