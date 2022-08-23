@@ -12,7 +12,7 @@
         <div class="our-team common-padding">
             <div slickContainer #slickController="slick" [slickConfig]="configTeam">
                 <ng-container *ngIf="slickController.initialize">
-                    <!-- <div class="inner-wrap" slickItem *ngFor="let item of doctorList">
+                    <div class="inner-wrap" slickItem *ngFor="let item of treatment_details.doctors">
                 <div class="img-wrap">
                   <img [src]="item.image" />
                 </div>
@@ -21,10 +21,10 @@
                   <p>{{item.qualification}}</p>
                   <p>{{item.profession}}</p>
                 </div>
-              </div> -->
+              </div>
 
 
-                    <div class="inner-wrap" slickItem>
+                    <!-- <div class="inner-wrap" slickItem>
                         <div class="img-wrap">
                             <img src="../../assets/img/team.png" />
                         </div>
@@ -44,7 +44,7 @@
                             <p>M.D., IDCCM (Critical care)</p>
                             <p> Obstetrician & Gynecologist</p>
                         </div>
-                    </div>
+                    </div> -->
 
                 </ng-container>
             </div>
