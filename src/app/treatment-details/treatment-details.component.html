@@ -13,15 +13,15 @@
             <div slickContainer #slickController="slick" [slickConfig]="configTeam">
                 <ng-container *ngIf="slickController.initialize">
                     <div class="inner-wrap" slickItem *ngFor="let item of treatment_details.doctors">
-                <div class="img-wrap">
-                  <img [src]="item.image" />
-                </div>
-                <div class="text-wrap">
-                  <h4>{{item.first_name+' '+ item.last_name}}</h4>
-                  <p>{{item.qualification}}</p>
-                  <p>{{item.profession}}</p>
-                </div>
-              </div>
+                        <div class="img-wrap">
+                            <img [src]="item.image" />
+                        </div>
+                        <div class="text-wrap">
+                            <h4>{{item.first_name+' '+ item.last_name}}</h4>
+                            <p>{{item.qualification}}</p>
+                            <p>{{item.profession}}</p>
+                        </div>
+                    </div>
 
 
                     <!-- <div class="inner-wrap" slickItem>

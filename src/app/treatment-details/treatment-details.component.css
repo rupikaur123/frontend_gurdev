@@ -48,6 +48,11 @@ p.content-wrap {
   background: #eaf3fc;
 }
 
+::ng-deep .our-team .slick-track {
+  margin: 0 auto !important;
+}
+
+
 
 /* responsive */
 @media (max-width: 1198.98px) {
@@ -55,6 +60,7 @@ p.content-wrap {
     height: 400px;
   }
 }
+
 @media (max-width: 991.98px) {
   .banner-section {
     height: 340px;
