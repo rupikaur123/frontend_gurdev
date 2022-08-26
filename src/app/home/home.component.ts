@@ -111,7 +111,7 @@ export class HomeComponent implements OnInit {
         console.log('Get completed sucessfully. The response received ' + data);
         this.res = data.data;
         this.treatment_name = this.res.filter((x: any) => {
-          return x.image != '' || x.image != undefined;
+          return x.image != '' && x.image != undefined && x.image!=null;
         });
         // this.treatment_name = this.res;
         console.log('treatment_name', this.treatment_name);
@@ -183,7 +183,8 @@ export class HomeComponent implements OnInit {
     });
   }
   navigate() {
-    this.route.navigate(['/treatment']);
+    console.log('***')
+    this.route.navigate(['/services']);
   }
   redirect(data: any) {
     this.route.navigate(['/news/details/' + data.id]);
